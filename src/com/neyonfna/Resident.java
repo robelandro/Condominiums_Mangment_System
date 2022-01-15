@@ -43,4 +43,6 @@ public class Resident {
     public int getPhone_number() {
         return phone_number;
     }
+    public void rent_States(){
+    }
 }
