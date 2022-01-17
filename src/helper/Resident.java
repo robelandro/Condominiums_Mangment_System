@@ -14,10 +14,10 @@ public class Resident extends Person{
 
     public Resident(String firstName, String lastName, int age, String address, String sex, int blockNumber, int phoneNumber, int houseNumber, boolean rentStatus) {
         super(firstName, lastName, age, address, sex);
-        this.blockNumber = blockNumber;
-        this.phoneNumber = phoneNumber;
-        this.houseNumber = houseNumber;
-        this.rentStatus = rentStatus;
+        this.setBlockNumber(blockNumber);
+        this.setPhoneNumber(phoneNumber);
+        this.setHouseNumber(houseNumber);
+        this.setRentStatus(rentStatus);
     }
 
     public void registration(){
