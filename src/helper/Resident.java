@@ -26,7 +26,7 @@ public class Resident extends Person{
         addData(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getBlockNumber(),getHouseNumber(),isRentStatus());
     }
     public static void createTable(String tableName){
-        String sqlTable = "CREATE TABLE "+tableName+" (Id INTEGER PRIMARY KEY AUTOINCREMENT,"+
+        String sqlTable = "CREATE TABLE "+tableName+" (ResidentId INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "FirstName STRING,"+
                 "LastName STRING,"+
                 "Address STRING,"+
@@ -52,12 +52,6 @@ public class Resident extends Person{
             /*System.exit(1);*/
         }
     }
-
-    public Resident(String firstName, String lastName, int age, String address, String sex, boolean rentStatus) {
-        super(firstName, lastName, age, address, sex);
-        this.setRentStatus(rentStatus);
-    }
-
     public static void addData(String tableName, String firstName, String lastName, String address , int age , String sex, int phoneNumber, int blockNumber, int houseNumber, boolean rentStatus){
         String sqlInsert = "INSERT INTO "+tableName+"( FirstName,LastName,Address,Age,Sex,PhoneNumber,BlockNumber,HouseNumber,RentStatus) VALUES (?,?,?,?,?,?,?,?,?)";
         Connection connection ;
@@ -73,6 +67,7 @@ public class Resident extends Person{
             statement.setInt(6,phoneNumber);
             statement.setInt(7,blockNumber);
             statement.setInt(8,houseNumber);
+            statement.setBoolean(9,rentStatus);
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -81,10 +76,24 @@ public class Resident extends Person{
         }
     }
 
-    public void check (){
+    public void check (String firstName,int residentId){
 
     }
-
+    public void removeResident(String firstName,int residentId){
+        String sqlDelete = "DELETE FROM "+ "Resident" +" WHERE "+" FirstName = '" +firstName+"'"+" AND "+"ResidentId = '"+residentId+"'";
+        Connection conn;
+        PreparedStatement preparedStatement;
+        try {
+            conn = DbConnection.getConnection();
+            preparedStatement = conn.prepareStatement(sqlDelete);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            conn.close();
+            System.out.println("Delete Successful");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public int getBlockNumber() {
         return blockNumber;
     }
