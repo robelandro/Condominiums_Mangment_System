@@ -26,7 +26,7 @@ public class Resident extends Person{
         addData(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getBlockNumber(),getHouseNumber(),isRentStatus());
     }
     public static void createTable(String tableName){
-        String sqlTable = "CREATE TABLE "+tableName+" (ResidentId INTEGER PRIMARY KEY AUTOINCREMENT,"+
+        String sqlTable = "CREATE TABLE "+tableName+" (UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "FirstName STRING,"+
                 "LastName STRING,"+
                 "Address STRING,"+
@@ -79,21 +79,12 @@ public class Resident extends Person{
     public void check (String firstName,int residentId){
 
     }
-    public void removeResident(String firstName,int residentId){
-        String sqlDelete = "DELETE FROM "+ "Resident" +" WHERE "+" FirstName = '" +firstName+"'"+" AND "+"ResidentId = '"+residentId+"'";
-        Connection conn;
-        PreparedStatement preparedStatement;
-        try {
-            conn = DbConnection.getConnection();
-            preparedStatement = conn.prepareStatement(sqlDelete);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            conn.close();
-            System.out.println("Delete Successful");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+    @Override
+    public void removeUser(String tableName, String firstName, int Id) {
+        super.removeUser(tableName, firstName, Id);
     }
+
     public int getBlockNumber() {
         return blockNumber;
     }

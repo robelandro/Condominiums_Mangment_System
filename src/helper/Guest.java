@@ -20,6 +20,11 @@ public class Guest extends Person{
         addData(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber());
     }
 
+    @Override
+    public void removeUser(String tableName, String firstName, int Id) {
+        super.removeUser(tableName, firstName, Id);
+    }
+
     public static void addData(String tableName, String firstName, String lastName, String address , int age , String sex, int phoneNumber){
         String sqlInsert = "INSERT INTO "+tableName+"( FirstName,LastName,Address,Age,Sex,PhoneNumber) VALUES (?,?,?,?,?,?)";
         Connection connection ;
@@ -42,7 +47,7 @@ public class Guest extends Person{
     }
 
     public static void createTable(String tableName){
-        String sqlTable = "CREATE TABLE "+tableName+" (ResidentId INTEGER PRIMARY KEY AUTOINCREMENT,"+
+        String sqlTable = "CREATE TABLE "+tableName+" (UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "FirstName STRING,"+
                 "LastName STRING,"+
                 "Address STRING,"+
