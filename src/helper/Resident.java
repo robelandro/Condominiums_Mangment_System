@@ -10,18 +10,20 @@ public class Resident extends Person{
     private int blockNumber;
     private int phoneNumber;
     private int houseNumber;
+    private boolean rentStatus;
 
-    public Resident(String firstName, String lastName, int age, String address, String sex, int blockNumber, int phoneNumber, int houseNumber) {
+    public Resident(String firstName, String lastName, int age, String address, String sex, int blockNumber, int phoneNumber, int houseNumber, boolean rentStatus) {
         super(firstName, lastName, age, address, sex);
-        this.setBlockNumber(blockNumber);
-        this.setPhoneNumber(phoneNumber);
-        this.setHouseNumber(houseNumber);
+        this.blockNumber = blockNumber;
+        this.phoneNumber = phoneNumber;
+        this.houseNumber = houseNumber;
+        this.rentStatus = rentStatus;
     }
 
     public void registration(){
         String tableName = "Resident";
         createTable(tableName);
-        addData(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getBlockNumber(),getHouseNumber());
+        addData(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getBlockNumber(),getHouseNumber(),isRentStatus());
     }
     public static void createTable(String tableName){
         String sqlTable = "CREATE TABLE "+tableName+" (Id INTEGER PRIMARY KEY AUTOINCREMENT,"+
@@ -32,7 +34,8 @@ public class Resident extends Person{
                 "Sex STRING,"+
                 "PhoneNumber INTEGER,"+
                 "BlockNumber INTEGER,"+
-                "HouseNumber INTEGER)";
+                "HouseNumber INTEGER,"+
+                "RentStatus BOOLEAN)";
         Connection connection ;
         PreparedStatement statement ;
         try {
@@ -49,8 +52,14 @@ public class Resident extends Person{
             /*System.exit(1);*/
         }
     }
-    public static void addData(String tableName,String firstName,String lastName,String address ,int age ,String sex,int phoneNumber,int blockNumber,int houseNumber){
-        String sqlInsert = "INSERT INTO "+tableName+"( FirstName,LastName,Address,Age,Sex,PhoneNumber,BlockNumber,HouseNumber) VALUES (?,?,?,?,?,?,?,?)";
+
+    public Resident(String firstName, String lastName, int age, String address, String sex, boolean rentStatus) {
+        super(firstName, lastName, age, address, sex);
+        this.setRentStatus(rentStatus);
+    }
+
+    public static void addData(String tableName, String firstName, String lastName, String address , int age , String sex, int phoneNumber, int blockNumber, int houseNumber, boolean rentStatus){
+        String sqlInsert = "INSERT INTO "+tableName+"( FirstName,LastName,Address,Age,Sex,PhoneNumber,BlockNumber,HouseNumber,RentStatus) VALUES (?,?,?,?,?,?,?,?,?)";
         Connection connection ;
         PreparedStatement statement ;
         try {
@@ -70,6 +79,10 @@ public class Resident extends Person{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void check (){
+
     }
 
     public int getBlockNumber() {
@@ -94,5 +107,13 @@ public class Resident extends Person{
 
     public void setHouseNumber(int houseNumber) {
         this.houseNumber = houseNumber;
+    }
+
+    public boolean isRentStatus() {
+        return rentStatus;
+    }
+
+    public void setRentStatus(boolean rentStatus) {
+        this.rentStatus = rentStatus;
     }
 }
