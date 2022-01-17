@@ -15,7 +15,11 @@ public class Staff extends Person{
         this.setWorkResponsibility(workResponsibility);
         this.setPhoneNumber(phoneNumber);
     }
-
+    public void registration(){
+        String tableName = "Staff";
+        createTable(tableName);
+        addData(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getWorkResponsibility());
+    }
     @Override
     public void removeUser(String tableName, String firstName, int Id) {
         super.removeUser(tableName, firstName, Id);
