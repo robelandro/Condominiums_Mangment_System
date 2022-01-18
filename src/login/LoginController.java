@@ -1,16 +1,23 @@
 package login;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
-public class LoginController extends Application {
+public class LoginController {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    @FXML
+    private Label dbStatues;
 
-    @Override
-    public void start(Stage primaryStage) {
+    @FXML
+    private ComboBox<?> option;
 
-    }
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private TextField userName;
+
 }
