@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -16,24 +16,24 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="buildingBlock" layoutX="48.0" layoutY="141.0" />
       <Label layoutX="17.0" layoutY="217.0" text="Please Enter Number Of House" textFill="#2e43ae">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="numberOfHouse" layoutX="48.0" layoutY="240.0" />
+      <TextField fx:id="numberOfHouse" layoutX="38.0" layoutY="249.0" prefHeight="26.0" prefWidth="152.0" />
       <Label layoutX="16.0" layoutY="81.0" prefHeight="18.0" prefWidth="142.0" text="Basic Information" />
       <Label layoutX="372.0" layoutY="73.0" prefHeight="18.0" prefWidth="173.0" text="Create  Admin Account" />
       <Label layoutX="372.0" layoutY="158.0" prefHeight="18.0" prefWidth="173.0" text="Admin UserName" />
       <TextField fx:id="startupUserName" layoutX="372.0" layoutY="191.0" />
       <Label layoutX="367.0" layoutY="244.0" prefHeight="18.0" prefWidth="142.0" text="Admin Password" />
       <PasswordField fx:id="startUpPassword" layoutX="367.0" layoutY="277.0" />
-      <Avatar layoutX="407.0" layoutY="106.0">
+      <Label fx:id="ErrorPrinter" layoutX="34.0" layoutY="303.0" prefHeight="18.0" prefWidth="142.0" />
+      <TextField fx:id="buildingBlock" layoutX="34.0" layoutY="154.0" />
+      <ImageView fitHeight="55.0" fitWidth="66.0" layoutX="405.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Resources/account.png" />
          </image>
-      </Avatar>
-      <Label fx:id="ErrorPrinter" layoutX="34.0" layoutY="303.0" prefHeight="18.0" prefWidth="142.0" />
+      </ImageView>
    </children>
 </AnchorPane>

@@ -15,11 +15,16 @@ public class StartUp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        Parent parent = (Parent) FXMLLoader.load(getClass().getResource("StartUp.fxml"));
-        Scene scene = new Scene(parent);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("StartUp");
-        primaryStage.show();
+    public void start(Stage primaryStage) throws Exception {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("StartUp.fxml"));
+            Scene scene = new Scene(parent);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("StartUp");
+            primaryStage.show();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
