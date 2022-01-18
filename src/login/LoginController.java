@@ -1,6 +1,7 @@
 package login;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -10,6 +11,12 @@ public class LoginController {
 
     @FXML
     private Label dbStatues;
+
+    @FXML
+    private Button forgetPassword;
+
+    @FXML
+    private Button login;
 
     @FXML
     private ComboBox<?> option;
