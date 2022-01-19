@@ -21,6 +21,7 @@ public class StartUp extends Application {
             Scene scene = new Scene(parent);
             primaryStage.setScene(scene);
             primaryStage.setTitle("StartUp");
+            primaryStage.setResizable(false);
             primaryStage.show();
         }
         catch (Exception e){
