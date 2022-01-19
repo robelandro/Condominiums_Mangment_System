@@ -9,4 +9,7 @@ module Condominiums.Mangment.System {
 
     opens login;
     opens startUp;
+    opens dbUtil;
+    opens helper;
+    opens mangement;
 }

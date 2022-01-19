@@ -1,10 +1,8 @@
 package helper;
 
-import dbUtil.DbConnection;
+import dbUtil.SqlDataMode;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 
 public class Resident extends Person{
     private int blockNumber;
@@ -22,68 +20,15 @@ public class Resident extends Person{
 
     public void registration(){
         String tableName = "Resident";
-        createTable(tableName);
-        addData(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getBlockNumber(),getHouseNumber(),isRentStatus());
+        SqlDataMode sqlDataMode = new SqlDataMode();
+        sqlDataMode.addDataResident(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getBlockNumber(),getHouseNumber(),isRentStatus());
     }
-    public static void createTable(String tableName){
-        String sqlTable = "CREATE TABLE "+tableName+" (UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "FirstName STRING,"+
-                "LastName STRING,"+
-                "Address STRING,"+
-                "Age INTEGER,"+
-                "Sex STRING,"+
-                "PhoneNumber INTEGER,"+
-                "BlockNumber INTEGER,"+
-                "HouseNumber INTEGER,"+
-                "RentStatus BOOLEAN)";
-        Connection connection ;
-        PreparedStatement statement ;
-        try {
-            connection = DbConnection.getConnection();
-            statement =connection.prepareStatement(sqlTable);
-            statement.execute();
-            statement.close();
-            connection.close();
-            System.out.println("Table created successfully.");
-        } catch (SQLException e) {
-//            e.printStackTrace();
-            System.out.println("Table created Excite.");
 
-            /*System.exit(1);*/
-        }
-    }
-    public static void addData(String tableName, String firstName, String lastName, String address , int age , String sex, int phoneNumber, int blockNumber, int houseNumber, boolean rentStatus){
-        String sqlInsert = "INSERT INTO "+tableName+"( FirstName,LastName,Address,Age,Sex,PhoneNumber,BlockNumber,HouseNumber,RentStatus) VALUES (?,?,?,?,?,?,?,?,?)";
-        Connection connection ;
-        PreparedStatement statement ;
-        try {
-            connection = DbConnection.getConnection();
-            statement =connection.prepareStatement(sqlInsert);
-            statement.setString(1,firstName);
-            statement.setString(2,lastName);
-            statement.setString(3,address);
-            statement.setInt(4,age);
-            statement.setString(5,sex);
-            statement.setInt(6,phoneNumber);
-            statement.setInt(7,blockNumber);
-            statement.setInt(8,houseNumber);
-            statement.setBoolean(9,rentStatus);
-            statement.executeUpdate();
-            statement.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void check (String firstName,int residentId){
 
     }
 
-    @Override
-    public void removeUser(String tableName, String firstName, int Id) {
-        super.removeUser(tableName, firstName, Id);
-    }
 
     public int getBlockNumber() {
         return blockNumber;

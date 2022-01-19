@@ -21,21 +21,6 @@ public class Person {
         this.setSex(sex);
     }
 
-    public void removeUser(String tableName,String firstName,int Id){
-        String sqlDelete = "DELETE FROM "+tableName+" WHERE "+" FirstName = '" +firstName+"'"+" AND "+"UserId = '"+Id+"'";
-        Connection conn;
-        PreparedStatement preparedStatement;
-        try {
-            conn = DbConnection.getConnection();
-            preparedStatement = conn.prepareStatement(sqlDelete);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            conn.close();
-            System.out.println("Delete Successful");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public String getFirstName() {
         return firstName;

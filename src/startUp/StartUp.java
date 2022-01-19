@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class StartUp extends Application {
 
-    public static void main(String[] args) {
+    public void launcherStart(String[] args) {
         launch(args);
     }
 
