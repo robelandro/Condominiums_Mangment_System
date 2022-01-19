@@ -171,7 +171,8 @@ public class SqlDataMode {
         String sqlTable = "CREATE TABLE "+tableName+" (UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "UserName STRING,"+
                 "Password STRING,"+
-                "AccessLevel STRING)";
+                "AccessLevel STRING,"+
+                "Hint STRING)";
         Connection connection ;
         PreparedStatement statement ;
         try {
@@ -188,8 +189,8 @@ public class SqlDataMode {
             /*System.exit(1);*/
         }
     }
-    public void loginTableAdd(String tableName,String userName,String password,String accessLevel){
-        String sqlInsert = "INSERT INTO "+tableName+"( UserName,Password,AccessLevel) VALUES (?,?,?)";
+    public void loginTableAdd(String tableName,String userName,String password,String accessLevel,String hint){
+        String sqlInsert = "INSERT INTO "+tableName+"( UserName,Password,AccessLevel,Hint) VALUES (?,?,?,?)";
         Connection connection ;
         PreparedStatement statement ;
         try {
@@ -198,6 +199,8 @@ public class SqlDataMode {
             statement.setString(1,userName);
             statement.setString(2,password);
             statement.setString(3,accessLevel);
+            statement.setString(4,hint);
+
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -244,7 +247,30 @@ public class SqlDataMode {
         catch (SQLException e){
             return false;
         }
+    }
+    public String hintForget(String tableName,String hint){
 
+        String sqlRead = "SELECT * FROM "+tableName+" WHERE Hint = ?";
+        Connection connection ;
+        PreparedStatement statement ;
+        ResultSet resultSet;
+        try {
+            connection = DbConnection.getConnection();
+            statement = connection.prepareStatement(sqlRead);
+            statement.setString(1,hint);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()){
+            return "Your Credential \nUsername : "+resultSet.getString("UserName")+
+                    "\nPassword : "+resultSet.getString("Password");
+            }
+            else {
+                return "No Credential With this input";
+            }
+
+        }
+        catch (SQLException e){
+            return "No Credential With this input";
+        }
     }
 
 }

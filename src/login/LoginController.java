@@ -55,7 +55,16 @@ public class LoginController implements Initializable {
     public void loginPressed(ActionEvent event){
         LoginMode loginMode = new LoginMode();
         String tableName ="Login";
-        String comboBox = ((Option)this.option.getValue()).toString();
+        String comboBox = null;
+        try {
+            comboBox = ((Option)this.option.getValue()).toString();
+        }catch (Exception e){
+            errorPrint.setText("Wrong Credential");
+        }
+
+        //System.out.println(comboBox+" "+userName.getText()+" "+password.getText());
+
+
         if (!(comboBox == null)){
             boolean checked = loginMode.isCorrect(tableName,userName.getText(),password.getText(),comboBox);
             if (checked){
@@ -78,6 +87,26 @@ public class LoginController implements Initializable {
         }
         else {
             errorPrint.setText("Option Is Not Selected");
+        }
+    }
+    public void forgetPressed(ActionEvent event){
+        Stage stage =(Stage) this.forgetPassword.getScene().getWindow();
+        stage.close();
+        forgetPasswordDashBord();
+    }
+    public void forgetPasswordDashBord(){
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane pane;
+            pane = (Pane) loader.load(getClass().getResource("/login/forgetPassword.fxml").openStream());
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+            stage.setTitle("Forget Password");
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     public void adminDashBord(){
