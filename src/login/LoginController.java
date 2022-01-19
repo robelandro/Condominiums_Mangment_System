@@ -56,9 +56,9 @@ public class LoginController implements Initializable {
         LoginMode loginMode = new LoginMode();
         String tableName ="Login";
         String comboBox=((Option)this.option.getValue()).toString();
-        System.out.println(comboBox);
         if (!(comboBox == null)){
-            if (loginMode.isCorrect(tableName,userName.getText(),password.getText(),comboBox)){
+            boolean checked = loginMode.isCorrect(tableName,userName.getText(),password.getText(),comboBox);
+            if (checked){
                 Stage stage = (Stage)this.login.getScene().getWindow();
                 switch (comboBox) {
                     case "Admin" -> {

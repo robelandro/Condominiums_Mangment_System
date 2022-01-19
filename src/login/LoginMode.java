@@ -10,10 +10,10 @@ import java.sql.SQLException;
 public class LoginMode {
 
     public boolean isCorrect(String tableName,String userName,String password,String accessLeve){
-        Connection connection;
-        PreparedStatement preparedStatement;
-        ResultSet resultSet;
-        String sqlCheck="SELECT * FROM "+tableName+" WHERE UserId = 1 AND UserName =? AND Password =? AND AccessLevel =?";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String sqlCheck="SELECT * FROM "+tableName+" WHERE UserName =? AND Password =? AND AccessLevel =?";
         try{
             connection = DbConnection.getConnection();
             preparedStatement = connection.prepareStatement(sqlCheck);
@@ -21,16 +21,22 @@ public class LoginMode {
             preparedStatement.setString(2,password);
             preparedStatement.setString(3,accessLeve);
             resultSet = preparedStatement.executeQuery();
-            preparedStatement.close();
-            connection.close();
-            resultSet.close();
+
             if (resultSet.next()){
                 return true;
             }
             return false;
         } catch (SQLException e) {
-            e.printStackTrace();
             return false;
+        }
+        finally {
+            try {
+                preparedStatement.close();
+                resultSet.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
     }

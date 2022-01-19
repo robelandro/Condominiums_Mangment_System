@@ -168,8 +168,8 @@ public class SqlDataMode {
         }
     }
     public void loginTable(String tableName){
-        String sqlTable = "CREATE TABLE "+tableName+" (UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "UserName STRING,"+
+        String sqlTable = "CREATE TABLE "+tableName+
+                " (UserName STRING,"+
                 "Password STRING,"+
                 "AccessLevel STRING)";
         Connection connection ;
