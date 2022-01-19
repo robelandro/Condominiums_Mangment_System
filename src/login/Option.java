@@ -1,7 +1,7 @@
 package login;
 
 public enum Option {
-    Admin,UserName;
+    Admin,Staff;
     private Option(){
     }
     public String value(){

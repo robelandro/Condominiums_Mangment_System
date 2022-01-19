@@ -10,5 +10,5 @@ module Condominiums.Mangment.System {
     opens startUp;
     opens dbUtil;
     opens helper;
-    opens mangement;
+    opens management;
 }

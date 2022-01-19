@@ -1,4 +1,4 @@
-package mangement;
+package management;
 
 import dbUtil.SqlDataMode;
 import login.Login;
