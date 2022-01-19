@@ -57,26 +57,28 @@ public class LoginController implements Initializable {
         String tableName ="Login";
         String comboBox=((Option)this.option.getValue()).toString();
         System.out.println(comboBox);
-        if (loginMode.isCorrect(tableName,userName.getText(),password.getText(),comboBox)){
-            Stage stage = (Stage)this.login.getScene().getWindow();
-            switch (comboBox){
-                case "Admin":
-                    stage.close();
-                    adminDashBord();
-                    break;
-                case "Staff":
-                    stage.close();
-                    staffDashBord();
-                    break;
-                case default :
-                    errorPrint.setText("Option Is not Selected");
-                    break;
+        if (!(comboBox == null)){
+            if (loginMode.isCorrect(tableName,userName.getText(),password.getText(),comboBox)){
+                Stage stage = (Stage)this.login.getScene().getWindow();
+                switch (comboBox) {
+                    case "Admin" -> {
+                        stage.close();
+                        adminDashBord();
+                    }
+                    case "Staff" -> {
+                        stage.close();
+                        staffDashBord();
+                    }
+                    case default -> errorPrint.setText("Something is going to wrong");
+                }
+            }
+            else {
+                errorPrint.setText("Wrong Credential");
             }
         }
         else {
-            errorPrint.setText("Wrong Credential");
+            errorPrint.setText("Option Is Not Selected");
         }
-
     }
     public void adminDashBord(){
 
