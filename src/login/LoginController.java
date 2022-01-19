@@ -55,7 +55,7 @@ public class LoginController implements Initializable {
     public void loginPressed(ActionEvent event){
         LoginMode loginMode = new LoginMode();
         String tableName ="Login";
-        String comboBox=((Option)this.option.getValue()).toString();
+        String comboBox = ((Option)this.option.getValue()).toString();
         if (!(comboBox == null)){
             boolean checked = loginMode.isCorrect(tableName,userName.getText(),password.getText(),comboBox);
             if (checked){

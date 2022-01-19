@@ -14,8 +14,6 @@ public class ChoiceManagement {
             login.loginLauncher(args);
         }
         else {
-
-            dataMode.programTracker(trackerName);
             StartUp startUp = new StartUp();
             startUp.launcherStart(args);
             System.out.println("Program Run Success");

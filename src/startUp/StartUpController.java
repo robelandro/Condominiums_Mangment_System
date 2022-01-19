@@ -11,7 +11,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import login.Login;
 
 import java.io.IOException;
 
@@ -27,6 +26,12 @@ public class StartUpController {
     private TextField buildingBlock;
 
     @FXML
+    private PasswordField confirmPassword;
+
+    @FXML
+    private TextField hint;
+
+    @FXML
     private TextField numberOfHouse;
 
     @FXML
@@ -38,13 +43,21 @@ public class StartUpController {
     public void adminCreate(ActionEvent event){
         String table = "Login";
         String access = "Admin";
-        SqlDataMode sqlDataMode = new SqlDataMode();
-        sqlDataMode.loginTable(table);
-        sqlDataMode.loginTableAdd(table,startupUserName.getText(),startUpPassword.getText(),access);
-        sqlDataMode.createTableResident("Resident");
-        Stage stage = (Stage) this.adminCreate.getScene().getWindow();
-        stage.close();
-        loginPage();
+        String trackerName ="Program";
+
+        if (startUpPassword.getText().endsWith(confirmPassword.getText())){
+            SqlDataMode sqlDataMode = new SqlDataMode();
+            sqlDataMode.programTracker(trackerName);
+            sqlDataMode.loginTable(table);
+            sqlDataMode.loginTableAdd(table,startupUserName.getText(),startUpPassword.getText(),access);
+            sqlDataMode.createTableResident("Resident");
+            Stage stage = (Stage) this.adminCreate.getScene().getWindow();
+            stage.close();
+            loginPage();
+        }
+        else {
+            ErrorPrinter.setText("Password not match");
+        }
     }
 
     public void loginPage(){
