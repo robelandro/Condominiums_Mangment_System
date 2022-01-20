@@ -45,18 +45,18 @@ public class StartUpController {
         String access = "Admin";
         String trackerName ="Program";
 
-        if (startUpPassword.getText().endsWith(confirmPassword.getText())){
+        if (getStartUpPassword().getText().endsWith(getConfirmPassword().getText())){
             SqlDataMode sqlDataMode = new SqlDataMode();
             sqlDataMode.programTracker(trackerName);
             sqlDataMode.loginTable(table);
-            sqlDataMode.loginTableAdd(table,startupUserName.getText(),startUpPassword.getText(),access,hint.getText());
+            sqlDataMode.loginTableAdd(table, getStartupUserName().getText(), getStartUpPassword().getText(),access, getHint().getText());
             sqlDataMode.createTableResident("Resident");
-            Stage stage = (Stage) this.adminCreate.getScene().getWindow();
+            Stage stage = (Stage) this.getAdminCreate().getScene().getWindow();
             stage.close();
             loginPage();
         }
         else {
-            ErrorPrinter.setText("Password not match");
+            getErrorPrinter().setText("Password not match");
         }
     }
 
@@ -75,4 +75,67 @@ public class StartUpController {
         }
     }
 
+    public Label getErrorPrinter() {
+        return ErrorPrinter;
+    }
+
+    public void setErrorPrinter(Label errorPrinter) {
+        ErrorPrinter = errorPrinter;
+    }
+
+    public Button getAdminCreate() {
+        return adminCreate;
+    }
+
+    public void setAdminCreate(Button adminCreate) {
+        this.adminCreate = adminCreate;
+    }
+
+    public TextField getBuildingBlock() {
+        return buildingBlock;
+    }
+
+    public void setBuildingBlock(TextField buildingBlock) {
+        this.buildingBlock = buildingBlock;
+    }
+
+    public PasswordField getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(PasswordField confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public TextField getHint() {
+        return hint;
+    }
+
+    public void setHint(TextField hint) {
+        this.hint = hint;
+    }
+
+    public TextField getNumberOfHouse() {
+        return numberOfHouse;
+    }
+
+    public void setNumberOfHouse(TextField numberOfHouse) {
+        this.numberOfHouse = numberOfHouse;
+    }
+
+    public PasswordField getStartUpPassword() {
+        return startUpPassword;
+    }
+
+    public void setStartUpPassword(PasswordField startUpPassword) {
+        this.startUpPassword = startUpPassword;
+    }
+
+    public TextField getStartupUserName() {
+        return startupUserName;
+    }
+
+    public void setStartupUserName(TextField startupUserName) {
+        this.startupUserName = startupUserName;
+    }
 }

@@ -44,31 +44,26 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.option.setItems(FXCollections.observableArrayList(Option.values()));
+        this.getOption().setItems(FXCollections.observableArrayList(Option.values()));
     }
-
-/*    public LoginController(PasswordField password, TextField userName) {
-        this.setPassword(password);
-        this.setUserName(userName);
-    }*/
 
     public void loginPressed(ActionEvent event){
         LoginMode loginMode = new LoginMode();
         String tableName ="Login";
         String comboBox = null;
         try {
-            comboBox = ((Option)this.option.getValue()).toString();
+            comboBox = ((Option) this.getOption().getValue()).toString();
         }catch (Exception e){
-            errorPrint.setText("Wrong Credential");
+            getErrorPrint().setText("Wrong Credential");
         }
 
         //System.out.println(comboBox+" "+userName.getText()+" "+password.getText());
 
 
         if (!(comboBox == null)){
-            boolean checked = loginMode.isCorrect(tableName,userName.getText(),password.getText(),comboBox);
+            boolean checked = loginMode.isCorrect(tableName, getUserName().getText(), getPassword().getText(),comboBox);
             if (checked){
-                Stage stage = (Stage)this.login.getScene().getWindow();
+                Stage stage = (Stage) this.getLogin().getScene().getWindow();
                 switch (comboBox) {
                     case "Admin" -> {
                         stage.close();
@@ -78,19 +73,19 @@ public class LoginController implements Initializable {
                         stage.close();
                         staffDashBord();
                     }
-                    case default -> errorPrint.setText("Something is going to wrong");
+                    case default -> getErrorPrint().setText("Something is going to wrong");
                 }
             }
             else {
-                errorPrint.setText("Wrong Credential");
+                getErrorPrint().setText("Wrong Credential");
             }
         }
         else {
-            errorPrint.setText("Option Is Not Selected");
+            getErrorPrint().setText("Option Is Not Selected");
         }
     }
     public void forgetPressed(ActionEvent event){
-        Stage stage =(Stage) this.forgetPassword.getScene().getWindow();
+        Stage stage =(Stage) this.getForgetPassword().getScene().getWindow();
         stage.close();
         forgetPasswordDashBord();
     }
@@ -115,7 +110,7 @@ public class LoginController implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane pane;
-            pane = (Pane) loader.load(getClass().getResource("/management/choiceManagementAdmin.fxml").openStream());
+            pane = (Pane) loader.load(getClass().getResource("/management/ChoiceManagementAdmin.fxml").openStream());
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             stage.setTitle("Login Page");
@@ -130,7 +125,7 @@ public class LoginController implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane pane;
-            pane = (Pane) loader.load(getClass().getResource("/management/choiceManagementStaff.fxml").openStream());
+            pane = (Pane) loader.load(getClass().getResource("/management/ChoiceManagementStaff.fxml").openStream());
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             stage.setTitle("Login Page");
@@ -140,7 +135,48 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         }
     }
-/*    public PasswordField getPassword() {
+
+    public Label getDbStatues() {
+        return dbStatues;
+    }
+
+    public void setDbStatues(Label dbStatues) {
+        this.dbStatues = dbStatues;
+    }
+
+    public Label getErrorPrint() {
+        return errorPrint;
+    }
+
+    public void setErrorPrint(Label errorPrint) {
+        this.errorPrint = errorPrint;
+    }
+
+    public Button getForgetPassword() {
+        return forgetPassword;
+    }
+
+    public void setForgetPassword(Button forgetPassword) {
+        this.forgetPassword = forgetPassword;
+    }
+
+    public Button getLogin() {
+        return login;
+    }
+
+    public void setLogin(Button login) {
+        this.login = login;
+    }
+
+    public ComboBox<Option> getOption() {
+        return option;
+    }
+
+    public void setOption(ComboBox<Option> option) {
+        this.option = option;
+    }
+
+    public PasswordField getPassword() {
         return password;
     }
 
@@ -154,6 +190,6 @@ public class LoginController implements Initializable {
 
     public void setUserName(TextField userName) {
         this.userName = userName;
-    }*/
+    }
 
 }
