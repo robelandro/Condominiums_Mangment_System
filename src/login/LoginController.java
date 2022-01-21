@@ -74,9 +74,9 @@ public class LoginController implements Initializable {
             //stage.close();
             System.exit(0);
         });
-        buttonMinimize.setOnMouseClicked(mouseEvent -> {
+        /*buttonMinimize.setOnMouseClicked(mouseEvent -> {
             stage.setIconified(true);
-        });
+        });*/
     }
 
     public void loginPressed(ActionEvent event){

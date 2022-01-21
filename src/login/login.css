@@ -1,18 +1,42 @@
 .root{
-    -fx-background-color: #34495E;
-    -fx-background-radius: 28;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50 25 25 50;
 }
-.loginMain{
-    -fx-background-color: linear-gradient(to bottom right,#E57373,#AB47BC );
-    -fx-background-radius: 15 15 25 25;
+.paneLeft{
+    -fx-background-color: #293146;
+    -fx-background-radius: 15 0 0 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
-.textBox{
-    -fx-background-color: #00000025;
-    -fx-background-radius: 6;
-}
--textFiled{
+.paneRight{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 0 15 15 0;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
     -fx-padding: 10;
-    -fx-background-color: firebrick;
-    -fx-background-radius: 5;
+    -fx-opacity: 0.9;
+}
+.aboveRectangle{
+    -fx-background-radius: 40 40 40 40;
+}
+.belowRectangel{
+    -fx-background-radius: 40 40 40 40;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-opacity: 0.4;
+}
+.filed{
+    -fx-border-color: #287ff1;
+    -fx-border-width: 0 0 2 0;
+    -fx-background-color: transparent;
+}
+.closePane{
+    -fx-background-color: #273746;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-background-radius: 25;
+}
+.button{
+    -fx-background-color: #287ff1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-background-radius: 10;
+}
+.button:hover{
+    -fx-opacity: 0.4;
 }

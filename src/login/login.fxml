@@ -1,60 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPan" prefHeight="400.0" prefWidth="600.0" stylesheets="/login/login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+<AnchorPane fx:id="anchorPan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="850.0" styleClass="root" stylesheets="@login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
    <children>
-      <Pane fx:id="pane" layoutX="6.0" layoutY="33.0" prefHeight="361.0" prefWidth="588.0" styleClass="loginMain">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#287ff1" height="500.0" layoutX="640.0" layoutY="-60.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="belowRectangel" width="500.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="642.0" AnchorPane.rightAnchor="-292.0" AnchorPane.topAnchor="-66.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#287ff1" height="500.0" layoutX="650.0" layoutY="40.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="aboveRectangle" width="500.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5294eb" height="500.0" layoutX="770.0" layoutY="20.0" rotate="30.0" stroke="BLACK" strokeWidth="0.0" styleClass="aboveRectangle" width="500.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <Pane fx:id="paneLeft" layoutX="40.0" layoutY="40.0" prefHeight="450.0" prefWidth="300.0" styleClass="paneLeft" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="45.0">
          <children>
-            <Label alignment="CENTER" layoutX="152.0" layoutY="139.0" prefHeight="25.0" prefWidth="100.0" styleClass="textBox" text="UserName">
+            <HBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+               </children>
+            </HBox>
+            <HBox layoutY="75.0" prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+               </children>
+            </HBox>
+            <HBox layoutY="375.0" prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+               </children>
+            </HBox>
+            <HBox layoutY="225.0" prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+               </children>
+            </HBox>
+            <HBox layoutY="150.0" prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+               </children>
+            </HBox>
+            <HBox layoutY="300.0" prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#42495c" length="90.0" radiusX="75.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Arc fill="#343c51" length="90.0" radiusX="75.0" radiusY="75.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+               </children>
+            </HBox>
+         </children></Pane>
+      <Pane fx:id="paneRight" layoutX="340.0" layoutY="75.0" prefHeight="200.0" prefWidth="200.0" styleClass="paneRight" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Label layoutX="200.0" layoutY="30.0" prefHeight="25.0" prefWidth="75.0" text="Sign In" textFill="#287ff1">
                <font>
-                  <Font name="Verdana" size="16.0" />
-               </font></Label>
-            <Label alignment="CENTER" layoutX="152.0" layoutY="180.0" prefHeight="25.0" prefWidth="100.0" styleClass="textBox" text="Password">
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="200.0" prefHeight="25.0" prefWidth="75.0" text="Username" textFill="#287ff1">
                <font>
-                  <Font name="Verdana" size="16.0" />
-               </font></Label>
-            <PasswordField fx:id="password" layoutX="264.0" layoutY="180.0" prefHeight="25.0" prefWidth="200.0" promptText="password" />
-            <TextField fx:id="userName" layoutX="264.0" layoutY="139.0" onAction="#loginPressed" prefHeight="25.0" prefWidth="200.0" promptText="username" />
-            <Label layoutX="54.0" layoutY="36.0" prefHeight="17.0" prefWidth="85.0" text="DB" />
-            <Label alignment="CENTER" layoutX="152.0" layoutY="94.0" prefHeight="25.0" prefWidth="100.0" styleClass="textBox" text="Option">
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="250.0" prefHeight="25.0" prefWidth="75.0" text="Password" textFill="#287ff1">
                <font>
-                  <Font name="Verdana" size="16.0" />
-               </font></Label>
-            <Label fx:id="errorPrint" layoutX="142.0" layoutY="229.0" prefHeight="25.0" prefWidth="130.0" textFill="#c30e0e" />
-            <Button fx:id="login" layoutX="299.0" layoutY="233.0" mnemonicParsing="false" onAction="#loginPressed" prefHeight="25.0" prefWidth="130.0" text="Log In" />
-            <Button fx:id="forgetPassword" layoutX="300.0" layoutY="301.0" mnemonicParsing="false" onAction="#forgetPressed" prefHeight="25.0" prefWidth="130.0" text="Forget Password?" />
-            <ImageView fitHeight="50.0" fitWidth="66.0" layoutX="307.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorPrint" layoutX="48.0" layoutY="304.0" text="Info" />
+            <JFXButton fx:id="login" layoutX="162.0" layoutY="293.0" onAction="#loginPressed" prefHeight="40.0" prefWidth="200.0" text="Log In" />
+            <Pane layoutX="150.0" layoutY="238.0" prefHeight="50.0" prefWidth="250.0">
+               <children>
+                  <PasswordField fx:id="password" layoutX="10.0" layoutY="15.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" styleClass="filed" />
+                  <FontAwesomeIcon iconName="EYE" layoutX="220.0" layoutY="35.0" size="25" />
+               </children>
+            </Pane>
+            <Pane layoutX="150.0" layoutY="187.0" prefHeight="50.0" prefWidth="250.0">
+               <children>
+                  <TextField fx:id="userName" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="200.0" promptText="Username" styleClass="filed">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </Pane>
+            <JFXButton fx:id="forgetPassword" layoutX="162.0" layoutY="347.0" onAction="#forgetPressed" prefHeight="40.0" prefWidth="200.0" text="Forget Password?" />
+            <JFXComboBox fx:id="option" layoutX="162.0" layoutY="143.0" prefHeight="25.0" prefWidth="200.0" promptText="Admin/Other" style="-jfx-focus-color: #AED6F1; -jfx-unfocus-color: #287ff1;" />
+            <Label layoutX="48.0" layoutY="156.0" prefHeight="25.0" prefWidth="75.0" text="Option" textFill="#287ff1">
+               <font>
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon iconName="USER" layoutX="215.0" layoutY="100.0" size="25" />
+         </children></Pane>
+      <Pane fx:id="closePane" layoutX="8.0" layoutY="8.0" prefHeight="75.0" prefWidth="75.0" styleClass="closePane" AnchorPane.bottomAnchor="457.0" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <ImageView fx:id="buttonClose" fitHeight="50.0" fitWidth="45.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="/login/login.png" />
+                  <Image url="@close.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="option" layoutX="263.0" layoutY="91.0" prefWidth="150.0" promptText="Admin/Staff" />
          </children>
       </Pane>
-      <ImageView fx:id="buttonClose" fitHeight="25.0" fitWidth="25.0" layoutX="539.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="/login/close.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="buttonMinimize" fitHeight="25.0" fitWidth="25.0" layoutX="504.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="/login/minimize.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="261.0" layoutY="7.0" prefHeight="20.0" prefWidth="91.0" text="Login Page" textFill="#cea1ff" styleClass="textFiled">
-         <font>
-            <Font name="Times New Roman" size="18.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

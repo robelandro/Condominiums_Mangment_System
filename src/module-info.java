@@ -4,6 +4,8 @@ module Condominiums.Mangment.System {
     requires javafx.fxml;
     requires javafx.graphics;
     requires java.sql;
+    requires com.jfoenix;
+    requires fontawesomefx;
 
 
     opens login;
