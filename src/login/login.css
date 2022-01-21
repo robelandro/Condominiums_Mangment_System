@@ -1,3 +1,12 @@
-#anchorPan{
-    -fx-background-color: lightblue;
+.root{
+    -fx-background-color: #222;
+    -fx-background-radius: 28;
+}
+.loginMain{
+    -fx-background-color: linear-gradient(to bottom right,#E57373,#AB47BC );
+    -fx-background-radius: 15 15 25 25;
+}
+.textBox{
+    -fx-background-color: #00000025;
+    -fx-background-radius: 6;
 }

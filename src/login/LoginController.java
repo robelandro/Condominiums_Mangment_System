@@ -11,6 +11,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -19,6 +21,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+
+    @FXML
+    private AnchorPane anchorPan;
+
+    @FXML
+    private ImageView buttonClose;
+
+    @FXML
+    private ImageView buttonMinimize;
 
     @FXML
     private Label dbStatues;
@@ -36,15 +47,36 @@ public class LoginController implements Initializable {
     private ComboBox<Option> option;
 
     @FXML
+    private Pane pane;
+
+    @FXML
     private PasswordField password;
 
     @FXML
     private TextField userName;
 
+    private double x,y;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.getOption().setItems(FXCollections.observableArrayList(Option.values()));
+    }
+    public void init(Stage stage){
+        anchorPan.setOnMousePressed(mouseEvent -> {
+            x = mouseEvent.getSceneX();
+            y = mouseEvent.getSceneY();
+        });
+        anchorPan.setOnMouseDragged(mouseEvent -> {
+            stage.setX(mouseEvent.getScreenX()-x);
+            stage.setY(mouseEvent.getScreenY()-y);
+        });
+        buttonClose.setOnMouseClicked(mouseEvent -> {
+            //stage.close();
+            System.exit(0);
+        });
+        buttonMinimize.setOnMouseClicked(mouseEvent -> {
+            stage.setIconified(true);
+        });
     }
 
     public void loginPressed(ActionEvent event){

@@ -10,7 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import login.LoginController;
 
 import java.io.IOException;
 
@@ -67,8 +70,11 @@ public class StartUpController {
             Pane pane = (Pane) loader.load(getClass().getResource("/login/login.fxml").openStream());
             Scene scene = new Scene(pane);
             stage.setScene(scene);
-            stage.setTitle("Login Page");
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.setResizable(false);
+            ((LoginController)loader.getController()).init(stage);
             stage.show();
         }catch (IOException e) {
             e.printStackTrace();

@@ -11,7 +11,7 @@ public class ChoiceManagement {
         if (dataMode.isNotStarUp(trackerName)){
             System.out.println("Skipped");
             Login login = new Login();
-            login.loginLauncher(args);
+            login.loginLauncher();
         }
         else {
             StartUp startUp = new StartUp();
