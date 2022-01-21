@@ -1,5 +1,5 @@
 .root{
-    -fx-background-color: #222;
+    -fx-background-color: #34495E;
     -fx-background-radius: 28;
 }
 .loginMain{
@@ -9,4 +9,10 @@
 .textBox{
     -fx-background-color: #00000025;
     -fx-background-radius: 6;
+}
+-textFiled{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-padding: 10;
+    -fx-background-color: firebrick;
+    -fx-background-radius: 5;
 }

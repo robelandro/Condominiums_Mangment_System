@@ -51,7 +51,7 @@
             <Image url="/login/minimize.png" />
          </image>
       </ImageView>
-      <Label layoutX="261.0" layoutY="7.0" prefHeight="20.0" prefWidth="91.0" text="Login Page" textFill="#cea1ff">
+      <Label layoutX="261.0" layoutY="7.0" prefHeight="20.0" prefWidth="91.0" text="Login Page" textFill="#cea1ff" styleClass="textFiled">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
