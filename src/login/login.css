@@ -40,3 +40,11 @@
 .button:hover{
     -fx-opacity: 0.4;
 }
+.paneBox{
+    -fx-background-color: transparent;
+    -fx-border-radius: 10;
+    -fx-border-color: #AEB2C3;
+}
+.paneBox:hover{
+    -fx-opacity: 1;
+}

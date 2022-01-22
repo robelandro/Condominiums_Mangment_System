@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.guiElement.ResidentManger">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="430.0">
+         <children>
+            <HBox prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Frist Name">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="firstNamePo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Last Name">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="lastNamePo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="55.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Age">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="agePo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Address">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="addressPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="145.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Sex">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXRadioButton fx:id="malePo" prefHeight="25.0" prefWidth="100.0" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Sex" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="femalePo" prefHeight="25.0" prefWidth="100.0" text="Female" toggleGroup="$Sex" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="190.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="PhoneNumber">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="phonNumberPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="235.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Block">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="blockNumberPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="280.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="House Number">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="houseNumberPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="325.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Rent Status">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXRadioButton fx:id="rentPo" prefHeight="25.0" prefWidth="100.0" text="Rent">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Rent" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="ownerPo" prefHeight="25.0" prefWidth="100.0" text="Owner" toggleGroup="$Rent" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXButton fx:id="registerPo" layoutX="186.0" layoutY="425.0" onAction="#registerClicked" prefHeight="25.0" prefWidth="250.0" text="Register" />
+      <Label fx:id="infoPo" layoutX="40.0" layoutY="425.0" prefHeight="25.0" prefWidth="100.0" text="info" />
+      <JFXButton fx:id="cancelPo" layoutX="236.0" layoutY="461.0" onAction="#cancelClicked" prefHeight="25.0" prefWidth="150.0" text="Cancel" />
+   </children>
+</AnchorPane>

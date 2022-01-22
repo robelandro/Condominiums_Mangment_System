@@ -89,15 +89,15 @@
                   <Font name="Times New Roman" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="errorPrint" layoutX="48.0" layoutY="304.0" text="Info" />
+            <Label fx:id="errorPrint" layoutX="48.0" layoutY="304.0" />
             <JFXButton fx:id="login" layoutX="162.0" layoutY="293.0" onAction="#loginPressed" prefHeight="40.0" prefWidth="200.0" text="Log In" />
-            <Pane layoutX="150.0" layoutY="238.0" prefHeight="50.0" prefWidth="250.0">
+            <Pane layoutX="150.0" layoutY="238.0" prefHeight="50.0" prefWidth="250.0" styleClass="paneBox">
                <children>
                   <PasswordField fx:id="password" layoutX="10.0" layoutY="15.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" styleClass="filed" />
-                  <FontAwesomeIcon iconName="EYE" layoutX="220.0" layoutY="35.0" size="25" />
+                  <FontAwesomeIcon fx:id="showEye" iconName="EYE" layoutX="220.0" layoutY="35.0" size="25" />
                </children>
             </Pane>
-            <Pane layoutX="150.0" layoutY="187.0" prefHeight="50.0" prefWidth="250.0">
+            <Pane layoutX="150.0" layoutY="187.0" prefHeight="50.0" prefWidth="250.0" styleClass="paneBox">
                <children>
                   <TextField fx:id="userName" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="200.0" promptText="Username" styleClass="filed">
                      <padding>
