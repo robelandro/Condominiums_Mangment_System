@@ -4,9 +4,14 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXScrollPane;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
+
+import java.io.IOException;
 
 public class ChoiceManagementControllerAdmin {
 
@@ -53,12 +58,17 @@ public class ChoiceManagementControllerAdmin {
     }
 
     @FXML
-    void registerMangerP(ActionEvent event) {
-
+    public void registerMangerP(ActionEvent event) throws IOException {
+        Node root = FXMLLoader.load(getClass().getResource("/management/residentContent.fxml"));
+        abovePane.getChildren().add(root);
     }
 
     @FXML
     void signOutP(ActionEvent event) {
+
+    }
+    @FXML
+    void addUser(ActionEvent event){
 
     }
 

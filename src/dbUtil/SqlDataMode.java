@@ -1,5 +1,9 @@
 package dbUtil;
 
+import management.ResidentData;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,17 +11,19 @@ import java.sql.SQLException;
 
 public class SqlDataMode {
 
+    public ObservableList<ResidentData> data;
+
     public void createTableResident(String tableName){
         String sqlTable = "CREATE TABLE "+tableName+" (UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "FirstName STRING,"+
                 "LastName STRING,"+
                 "Address STRING,"+
-                "Age INTEGER,"+
+                "Age STRING,"+
                 "Sex STRING,"+
-                "PhoneNumber INTEGER,"+
-                "BlockNumber INTEGER,"+
-                "HouseNumber INTEGER,"+
-                "RentStatus BOOLEAN)";
+                "PhoneNumber STRING,"+
+                "BlockNumber STRING,"+
+                "HouseNumber STRING,"+
+                "RentStatus STRING)";
         Connection connection ;
         PreparedStatement statement ;
         try {
@@ -35,7 +41,7 @@ public class SqlDataMode {
         }
     }
 
-    public void addDataResident(String tableName, String firstName, String lastName, String address , int age , String sex, int phoneNumber, int blockNumber, int houseNumber, boolean rentStatus){
+    public void addDataResident(String tableName, String firstName, String lastName, String address , String age , String sex, String phoneNumber, String blockNumber, String houseNumber, String rentStatus){
         String sqlInsert = "INSERT INTO "+tableName+"( FirstName,LastName,Address,Age,Sex,PhoneNumber,BlockNumber,HouseNumber,RentStatus) VALUES (?,?,?,?,?,?,?,?,?)";
         Connection connection ;
         PreparedStatement statement ;
@@ -45,12 +51,12 @@ public class SqlDataMode {
             statement.setString(1,firstName);
             statement.setString(2,lastName);
             statement.setString(3,address);
-            statement.setInt(4,age);
+            statement.setString(4,age);
             statement.setString(5,sex);
-            statement.setInt(6,phoneNumber);
-            statement.setInt(7,blockNumber);
-            statement.setInt(8,houseNumber);
-            statement.setBoolean(9,rentStatus);
+            statement.setString(6,phoneNumber);
+            statement.setString(7,blockNumber);
+            statement.setString(8,houseNumber);
+            statement.setString(9,rentStatus);
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -235,9 +241,9 @@ public class SqlDataMode {
 
     public boolean isNotStarUp(String tableName){
         String sqlRead = "SELECT * FROM "+tableName+" WHERE UserId = 1";
-        Connection connection ;
+        Connection connection = null;
         PreparedStatement statement ;
-        ResultSet resultSet;
+        ResultSet resultSet = null;
         try {
             connection = DbConnection.getConnection();
             statement = connection.prepareStatement(sqlRead);
@@ -246,6 +252,14 @@ public class SqlDataMode {
         }
         catch (SQLException e){
             return false;
+        }
+        finally {
+            try {
+                resultSet.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     public String hintForget(String tableName,String hint){
@@ -270,6 +284,26 @@ public class SqlDataMode {
         }
         catch (SQLException e){
             return "No Credential With this input";
+        }
+    }
+    public void readResident (String tableName){
+        Connection connection;
+        PreparedStatement statement;
+        ResultSet resultSet;
+        this.data = FXCollections.observableArrayList();
+        String sqlRead ="SELECT * FROM "+tableName;
+
+        try {
+            connection =DbConnection.getConnection();
+            statement = connection.prepareStatement(sqlRead);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                this.data.add(new ResidentData(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8),resultSet.getString(9),resultSet.getString(10)));
+            }
+
+        }
+        catch (SQLException e){
+            e.printStackTrace();
         }
     }
 

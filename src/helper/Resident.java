@@ -21,7 +21,7 @@ public class Resident extends Person{
     public void registration(){
         String tableName = "Resident";
         SqlDataMode sqlDataMode = new SqlDataMode();
-        sqlDataMode.addDataResident(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getBlockNumber(),getHouseNumber(),isRentStatus());
+        //sqlDataMode.addDataResident(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getBlockNumber(),getHouseNumber(),isRentStatus());
     }
 
 

@@ -1,29 +1,43 @@
-package helper.guiElement;
+package management;
 
 
 import javafx.beans.property.*;
 
 public class ResidentData {
+    private final IntegerProperty userId;
     private final StringProperty firstName;
     private final StringProperty lastName;
-    private final IntegerProperty age;
+    private final StringProperty age;
     private final StringProperty address;
     private final StringProperty sex;
-    private final IntegerProperty blockNumber;
-    private final IntegerProperty phoneNumber;
-    private final IntegerProperty houseNumber;
-    private final BooleanProperty rentStatus;
+    private final StringProperty blockNumber;
+    private final StringProperty phoneNumber;
+    private final StringProperty houseNumber;
+    private final StringProperty rentStatus;
 
-    public ResidentData(String firstName, String lastName, int age, String address, String sex, int blockNumber, int phoneNumber, int houseNumber, boolean rentStatus) {
+    public ResidentData(int userId ,String firstName, String lastName, String age, String address, String sex, String blockNumber, String phoneNumber, String houseNumber, String rentStatus) {
+        this.userId = new SimpleIntegerProperty(userId);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
-        this.age = new SimpleIntegerProperty(age);
+        this.age = new SimpleStringProperty(age);
         this.address = new SimpleStringProperty(address);
         this.sex = new SimpleStringProperty(sex);
-        this.blockNumber = new SimpleIntegerProperty(blockNumber);
-        this.phoneNumber = new SimpleIntegerProperty(phoneNumber);
-        this.houseNumber = new SimpleIntegerProperty(houseNumber);
-        this.rentStatus = new SimpleBooleanProperty(rentStatus);
+        this.blockNumber = new SimpleStringProperty(blockNumber);
+        this.phoneNumber = new SimpleStringProperty(phoneNumber);
+        this.houseNumber = new SimpleStringProperty(houseNumber);
+        this.rentStatus = new SimpleStringProperty(rentStatus);
+    }
+
+    public int getUserId() {
+        return userId.get();
+    }
+
+    public IntegerProperty userIdProperty() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId.set(userId);
     }
 
     public String getFirstName() {
@@ -50,15 +64,15 @@ public class ResidentData {
         this.lastName.set(lastName);
     }
 
-    public int getAge() {
+    public String getAge() {
         return age.get();
     }
 
-    public IntegerProperty ageProperty() {
+    public StringProperty ageProperty() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age.set(age);
     }
 
@@ -86,51 +100,51 @@ public class ResidentData {
         this.sex.set(sex);
     }
 
-    public int getBlockNumber() {
+    public String getBlockNumber() {
         return blockNumber.get();
     }
 
-    public IntegerProperty blockNumberProperty() {
+    public StringProperty blockNumberProperty() {
         return blockNumber;
     }
 
-    public void setBlockNumber(int blockNumber) {
+    public void setBlockNumber(String blockNumber) {
         this.blockNumber.set(blockNumber);
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber.get();
     }
 
-    public IntegerProperty phoneNumberProperty() {
+    public StringProperty phoneNumberProperty() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber.set(phoneNumber);
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber.get();
     }
 
-    public IntegerProperty houseNumberProperty() {
+    public StringProperty houseNumberProperty() {
         return houseNumber;
     }
 
-    public void setHouseNumber(int houseNumber) {
+    public void setHouseNumber(String houseNumber) {
         this.houseNumber.set(houseNumber);
     }
 
-    public boolean isRentStatus() {
+    public String getRentStatus() {
         return rentStatus.get();
     }
 
-    public BooleanProperty rentStatusProperty() {
+    public StringProperty rentStatusProperty() {
         return rentStatus;
     }
 
-    public void setRentStatus(boolean rentStatus) {
+    public void setRentStatus(String rentStatus) {
         this.rentStatus.set(rentStatus);
     }
 }

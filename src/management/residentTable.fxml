@@ -3,7 +3,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-<TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17">
+<TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="management.ResidentManger">
   <columns>
     <TableColumn fx:id="userId" prefWidth="28.0" text="ID" />
     <TableColumn fx:id="firstName" prefWidth="143.0" text="FirstName" />
@@ -14,5 +14,6 @@
       <TableColumn fx:id="phoneNumber" prefWidth="168.0" text="Phone Number" />
       <TableColumn fx:id="block" minWidth="0.0" prefWidth="49.0" text="Block" />
       <TableColumn fx:id="houseNumber" prefWidth="91.0" text="HouseNumber" />
+      <TableColumn fx:id="rentStatusT" prefWidth="91.0" text="Rent Status" />
   </columns>
 </TableView>

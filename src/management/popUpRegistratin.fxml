@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.guiElement.ResidentManger">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="management.ResidentManger">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="430.0">
          <children>
@@ -110,7 +110,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="phonNumberPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                  <TextField fx:id="phoneNumberPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -175,7 +175,7 @@
          </children>
       </VBox>
       <JFXButton fx:id="registerPo" layoutX="186.0" layoutY="425.0" onAction="#registerClicked" prefHeight="25.0" prefWidth="250.0" text="Register" />
-      <Label fx:id="infoPo" layoutX="40.0" layoutY="425.0" prefHeight="25.0" prefWidth="100.0" text="info" />
+      <Label fx:id="infoPo" layoutX="20.0" layoutY="430.0" prefHeight="45.0" text="info" textFill="#f22929" />
       <JFXButton fx:id="cancelPo" layoutX="236.0" layoutY="461.0" onAction="#cancelClicked" prefHeight="25.0" prefWidth="150.0" text="Cancel" />
    </children>
 </AnchorPane>

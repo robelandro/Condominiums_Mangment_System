@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="management.ChoiceManagementControllerAdmin">
    <children>
       <VBox layoutX="20.0" layoutY="230.0" prefHeight="350.0" prefWidth="300.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="630.0" AnchorPane.topAnchor="230.0">
@@ -42,7 +41,7 @@
             </Label>
          </children>
       </VBox>
-      <JFXScrollPane fx:id="belowScrolle" layoutX="340.0" layoutY="230.0" prefHeight="350.0" prefWidth="590.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="230.0" />
+      <JFXScrollPane fx:id="belowScrolle" layoutX="340.0" layoutY="230.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="230.0" />
       <Pane fx:id="abovePane" layoutX="340.0" layoutY="70.0" prefHeight="100.0" prefWidth="590.0" AnchorPane.bottomAnchor="430.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
    </children>
 </AnchorPane>

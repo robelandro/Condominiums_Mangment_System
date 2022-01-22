@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="850.0" styleClass="root" stylesheets="@login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+<AnchorPane fx:id="anchorPan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="850.0" styleClass="root" stylesheets="/login/login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#287ff1" height="500.0" layoutX="640.0" layoutY="-60.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="belowRectangel" width="500.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="642.0" AnchorPane.rightAnchor="-292.0" AnchorPane.topAnchor="-66.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#287ff1" height="500.0" layoutX="650.0" layoutY="40.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="aboveRectangle" width="500.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0" />
@@ -119,7 +119,7 @@
          <children>
             <ImageView fx:id="buttonClose" fitHeight="50.0" fitWidth="45.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@close.png" />
+                  <Image url="/login/close.png" />
                </image>
             </ImageView>
          </children>
