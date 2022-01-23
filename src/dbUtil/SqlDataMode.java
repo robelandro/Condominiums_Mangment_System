@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class SqlDataMode {
 
-    public ObservableList<ResidentData> data;
+    public ObservableList<ResidentData> dataObservableList;
 
     public void createTableResident(String tableName){
         String sqlTable = "CREATE TABLE "+tableName+" (UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+
@@ -241,25 +241,18 @@ public class SqlDataMode {
 
     public boolean isNotStarUp(String tableName){
         String sqlRead = "SELECT * FROM "+tableName+" WHERE UserId = 1";
-        Connection connection = null;
+        Connection connection ;
         PreparedStatement statement ;
-        ResultSet resultSet = null;
+        ResultSet resultSet ;
         try {
             connection = DbConnection.getConnection();
             statement = connection.prepareStatement(sqlRead);
             resultSet = statement.executeQuery();
+            connection.close();
             return resultSet.next();
         }
         catch (SQLException e){
             return false;
-        }
-        finally {
-            try {
-                resultSet.close();
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
     }
     public String hintForget(String tableName,String hint){
@@ -287,24 +280,33 @@ public class SqlDataMode {
         }
     }
     public void readResident (String tableName){
-        Connection connection;
-        PreparedStatement statement;
-        ResultSet resultSet;
-        this.data = FXCollections.observableArrayList();
+        Connection connection = null;
+        ResultSet resultSet = null;
+        dataObservableList = FXCollections.observableArrayList();
         String sqlRead ="SELECT * FROM "+tableName;
 
         try {
-            connection =DbConnection.getConnection();
-            statement = connection.prepareStatement(sqlRead);
-            resultSet = statement.executeQuery();
+            connection = DbConnection.getConnection();
+            dataObservableList = FXCollections.observableArrayList();
+            PreparedStatement statement =connection.prepareStatement(sqlRead);
+            resultSet =statement.executeQuery();
             while (resultSet.next()){
-                this.data.add(new ResidentData(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8),resultSet.getString(9),resultSet.getString(10)));
+                dataObservableList.add(new ResidentData(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8),resultSet.getString(9),resultSet.getString(10)));
             }
 
         }
         catch (SQLException e){
             e.printStackTrace();
         }
+        finally {
+            try {
+                resultSet.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }

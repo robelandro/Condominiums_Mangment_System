@@ -1,7 +1,10 @@
 package management;
 
 
-import javafx.beans.property.*;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class ResidentData {
     private final IntegerProperty userId;
@@ -14,8 +17,7 @@ public class ResidentData {
     private final StringProperty phoneNumber;
     private final StringProperty houseNumber;
     private final StringProperty rentStatus;
-
-    public ResidentData(int userId ,String firstName, String lastName, String age, String address, String sex, String blockNumber, String phoneNumber, String houseNumber, String rentStatus) {
+    public ResidentData(int userId,String firstName ,String lastName,String age, String address,String sex,String blockNumber,String phoneNumber,String houseNumber,String rentStatus){
         this.userId = new SimpleIntegerProperty(userId);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
