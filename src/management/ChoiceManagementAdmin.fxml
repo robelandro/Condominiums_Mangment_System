@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="management.ChoiceManagementControllerAdmin">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="management.ChoiceManagementControllerAdmin">
    <children>
-      <VBox layoutX="20.0" layoutY="230.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="949.0" AnchorPane.topAnchor="230.0">
+      <Pane AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="960.0" AnchorPane.topAnchor="20.0">
          <children>
-            <JFXButton fx:id="registerManger" onAction="#registerMangerP" prefHeight="35.0" prefWidth="300.0" text="Resident Manger">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="paymentManger" onAction="#paymentMangerP" prefHeight="35.0" prefWidth="300.0" text="Payment Manger" />
-            <JFXButton fx:id="propertyManger" onAction="#propertyMangerP" prefHeight="35.0" prefWidth="300.0" text="Property Manger" />
-            <JFXButton fx:id="addUser" layoutX="20.0" layoutY="150.0" onAction="#addUser" prefHeight="35.0" prefWidth="300.0" text="AddUser" />
-            <JFXButton fx:id="updateTabel" layoutX="20.0" layoutY="215.0" onAction="#updateTa" prefHeight="35.0" prefWidth="300.0" text="Update" />
-            <JFXButton fx:id="signOut" layoutX="20.0" layoutY="255.0" onAction="#signOutP" prefHeight="35.0" prefWidth="300.0" text="Sign Out" />
+            <ImageView fx:id="profilePicture" fitHeight="100.0" fitWidth="150.0" layoutX="75.0" pickOnBounds="true" preserveRatio="true">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+            <Label fx:id="profileName" layoutX="50.0" layoutY="132.5" prefHeight="35.0" prefWidth="200.0" text="Label" />
          </children>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="32.5" right="50.0" />
+         </padding>
+      </Pane>
+      <VBox spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="960.0" AnchorPane.topAnchor="240.0">
+         <children>
+            <JFXButton fx:id="residentsManger" onAction="#residentMangerPressed" prefHeight="45.0" prefWidth="255.0" text="Resident Manger">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="paymentManger" layoutX="30.0" layoutY="10.0" onAction="#paymentMangerPressed" prefHeight="45.0" prefWidth="255.0" text="Payment Manger">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="propertyManger" layoutX="10.0" layoutY="55.0" onAction="#propertyMangerPressed" prefHeight="45.0" prefWidth="255.0" text="Propertiy Manger">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="staffManger" layoutX="10.0" layoutY="100.0" onAction="#staffMangerPressed" prefHeight="45.0" prefWidth="255.0" text="Staff Manger">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="signOut" layoutX="10.0" layoutY="145.0" onAction="#signOutPressed" prefHeight="45.0" prefWidth="255.0" text="Sign Out">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets top="65.0" />
          </padding>
       </VBox>
-      <VBox layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="960.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <ImageView fx:id="profileImage" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-               <VBox.margin>
-                  <Insets left="75.0" right="75.0" />
-               </VBox.margin>
-            </ImageView>
-            <Label fx:id="profileName" alignment="CENTER" prefHeight="45.0" prefWidth="300.0" text="No Name">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-               </VBox.margin>
-            </Label>
-         </children>
-      </VBox>
-      <Pane fx:id="abovePane" layoutX="340.0" layoutY="70.0" prefHeight="100.0" prefWidth="590.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
-         <children>
-            <Pane layoutX="700.0" layoutY="25.0" prefHeight="45.0" prefWidth="200.0">
-               <children>
-                  <TextField fx:id="search" prefHeight="45.0" prefWidth="150.0" />
-                  <FontAwesomeIcon fx:id="searchPressed" iconName="SEARCH" layoutX="158.0" layoutY="32.0" size="30" />
-               </children>
-            </Pane>
-         </children></Pane>
-      <ScrollPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="230.0">
-        <content>
-          <AnchorPane fx:id="belowScroll" />
-        </content>
-      </ScrollPane>
+      <AnchorPane fx:id="functionalPan" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
    </children>
 </AnchorPane>

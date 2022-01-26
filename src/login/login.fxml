@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
@@ -89,7 +90,7 @@
                   <Font name="Times New Roman" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="errorPrint" layoutX="48.0" layoutY="304.0" />
+            <Label fx:id="errorPrint" layoutX="48.0" layoutY="304.0" prefWidth="45.0" textFill="RED" />
             <JFXButton fx:id="login" layoutX="162.0" layoutY="293.0" onAction="#loginPressed" prefHeight="40.0" prefWidth="200.0" text="Log In" />
             <Pane layoutX="150.0" layoutY="238.0" prefHeight="50.0" prefWidth="250.0" styleClass="paneBox">
                <children>
@@ -114,6 +115,7 @@
                </font>
             </Label>
             <FontAwesomeIcon iconName="USER" layoutX="215.0" layoutY="100.0" size="25" />
+            <JFXCheckBox fx:id="rememberMe" layoutX="40.0" layoutY="358.0" text="Remember Me" />
          </children></Pane>
       <Pane fx:id="closePane" layoutX="8.0" layoutY="8.0" prefHeight="75.0" prefWidth="75.0" styleClass="closePane" AnchorPane.bottomAnchor="457.0" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="8.0">
          <children>

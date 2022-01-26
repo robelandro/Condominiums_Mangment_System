@@ -217,8 +217,9 @@ public class SqlDataMode {
 
     public void programTracker(String tableName){
         String sqlTable = "CREATE TABLE "+tableName+" (UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "StartUp INTEGER)";
-        String sqlInsert = "INSERT INTO "+tableName+" (StartUp) VALUES (0)";
+                "StartUp BOOLEAN," +
+                "RememberMe BOOLEAN)";
+        String sqlInsert = "INSERT INTO "+tableName+" (StartUp,RememberMe) VALUES (true,false)";
         Connection connection ;
         PreparedStatement statement ;
         try {
@@ -238,21 +239,82 @@ public class SqlDataMode {
         }
     }
 
+    public boolean rememberMe(String tableName){
+        String sqlRead = "SELECT * FROM "+tableName+
+                " WHERE UserId = 1";
+        Connection connection = null;
+        PreparedStatement statement ;
+        ResultSet resultSet;
+        try {
+            connection =DbConnection.getConnection();
+            statement = connection.prepareStatement(sqlRead);
+            resultSet = statement.executeQuery();
+            if(resultSet.getBoolean("RememberMe")){
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void rememberMeUpdate(String tableName ,boolean rem){
+        String rememberUpdater = "UPDATE "+tableName+
+                " SET RememberMe = ?"+
+                " WHERE UserId = 1";
+        Connection connection = null;
+        PreparedStatement statement ;
+        try {
+            connection=DbConnection.getConnection();
+            statement = connection.prepareStatement(rememberUpdater);
+            statement.setBoolean(1,rem);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-    public boolean isNotStarUp(String tableName){
+    public boolean isStarUp(String tableName){
         String sqlRead = "SELECT * FROM "+tableName+" WHERE UserId = 1";
-        Connection connection ;
+        Connection connection = null;
         PreparedStatement statement ;
         ResultSet resultSet ;
         try {
             connection = DbConnection.getConnection();
             statement = connection.prepareStatement(sqlRead);
             resultSet = statement.executeQuery();
-            connection.close();
-            return resultSet.next();
+            if (resultSet.getBoolean("StartUp")){
+                return true;
+            }
+            else {
+                return false;
+            }
         }
         catch (SQLException e){
             return false;
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     public String hintForget(String tableName,String hint){

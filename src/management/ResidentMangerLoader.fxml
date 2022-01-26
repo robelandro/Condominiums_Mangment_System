@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.pannable.PannablePane?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="680.0" maxWidth="840.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="management.ResidentMangerLoader">
+   <children>
+      <AnchorPane prefHeight="75.0" prefWidth="840.0" AnchorPane.bottomAnchor="605.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="addResident" layoutY="12.0" onAction="#addResidentP" prefHeight="45.0" prefWidth="150.0" text="Add Resident" />
+            <JFXButton fx:id="removeResident" layoutX="200.0" layoutY="12.0" onAction="#removeResidentP" prefHeight="45.0" prefWidth="150.0" text="Remove Resident" />
+            <FontAwesomeIcon fx:id="SearchPressed" iconName="SEARCH" layoutX="600.0" layoutY="45.0" size="35" />
+            <TextField fx:id="SearchFiled" layoutX="400.0" layoutY="20.0" prefHeight="35.0" prefWidth="200.0" />
+            <JFXButton fx:id="refreshTable" layoutX="670.0" layoutY="10.0" onAction="#refreshablePressed" prefHeight="45.0" prefWidth="150.0" text="Refresh Table" />
+         </children>
+      </AnchorPane>
+      <JFXScrollPane layoutY="100.0" prefHeight="580.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="840.0">
+               <children>
+                  <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="userId" prefWidth="28.0" text="ID" />
+                        <TableColumn fx:id="firstName" prefWidth="143.0" text="FirstName" />
+                        <TableColumn fx:id="lastName" prefWidth="117.0" text="LastName" />
+                        <TableColumn fx:id="address" prefWidth="102.0" text="Address" />
+                        <TableColumn fx:id="age" prefWidth="30.0" text="Age" />
+                        <TableColumn fx:id="sex" prefWidth="53.0" text="Sex" />
+                        <TableColumn fx:id="phoneNumber" prefWidth="168.0" text="Phone Number" />
+                        <TableColumn fx:id="block" minWidth="0.0" prefWidth="49.0" text="Block" />
+                        <TableColumn fx:id="houseNumber" prefWidth="136.0" text="HouseNumber" />
+                        <TableColumn fx:id="rentStatusT" prefWidth="93.0" text="Rent Status" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </JFXScrollPane>
+   </children>
+</AnchorPane>

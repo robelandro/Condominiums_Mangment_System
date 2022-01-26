@@ -1,18 +1,26 @@
 package management;
 
+import com.jfoenix.controls.JFXButton;
 import dbUtil.SqlDataMode;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ResidentTable implements Initializable {
+public class ResidentMangerLoader implements Initializable {
 
     @FXML
     private TableColumn<ResidentData, String> address;
@@ -46,6 +54,60 @@ public class ResidentTable implements Initializable {
 
     @FXML
     private TableColumn<ResidentData, Integer> userId;
+    //Resident Pressed
+    @FXML
+    private TextField SearchFiled;
+
+    @FXML
+    private FontAwesomeIcon SearchPressed;
+
+    @FXML
+    private JFXButton addResident;
+
+
+    @FXML
+    private JFXButton refreshTable;
+
+    @FXML
+    private JFXButton removeResident;
+
+    @FXML
+    void addResidentP(ActionEvent event) {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane pane;
+            pane = (Pane) loader.load(getClass().getResource("/management/popUpRegistratin.fxml").openStream());
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+            stage.setTitle("Add Resident");
+            stage.setResizable(false);
+            stage.showAndWait();
+            loadDataTable();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void removeResidentP(ActionEvent event) {
+
+    }
+
+    @FXML
+    void refreshablePressed(ActionEvent event) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    loadDataTable();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
     @FXML
     public void loadDataTable() throws IOException {

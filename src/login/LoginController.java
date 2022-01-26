@@ -1,5 +1,7 @@
 package login;
 
+import com.jfoenix.controls.JFXCheckBox;
+import dbUtil.SqlDataMode;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController extends Thread implements Initializable {
 
     @FXML
     private AnchorPane anchorPan;
@@ -48,6 +50,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private Pane pane;
+
+    @FXML
+    private JFXCheckBox rememberMe;
 
     @FXML
     private PasswordField password;
@@ -95,6 +100,16 @@ public class LoginController implements Initializable {
         if (!(comboBox == null)){
             boolean checked = loginMode.isCorrect(tableName, getUserName().getText(), getPassword().getText(),comboBox);
             if (checked){
+                if (rememberMe.isSelected()){
+                    String trackerName ="Program";
+                    SqlDataMode sqlDataMode = new SqlDataMode();
+                    sqlDataMode.rememberMeUpdate(trackerName,true);
+                }
+                else {
+                    String trackerName ="Program";
+                    SqlDataMode sqlDataMode = new SqlDataMode();
+                    sqlDataMode.rememberMeUpdate(trackerName,false);
+                }
                 Stage stage = (Stage) this.getLogin().getScene().getWindow();
                 switch (comboBox) {
                     case "Admin" -> {
