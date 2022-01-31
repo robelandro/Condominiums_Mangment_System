@@ -1,4 +1,4 @@
-package management;
+package helper.people;
 
 import com.jfoenix.controls.JFXButton;
 import dbUtil.SqlDataMode;
@@ -21,6 +21,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ResidentMangerLoader implements Initializable {
+
+    @FXML
+    private TableColumn<ResidentData, String> residentIDT;
 
     @FXML
     private TableColumn<ResidentData, String> address;
@@ -77,7 +80,7 @@ public class ResidentMangerLoader implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane pane;
-            pane = (Pane) loader.load(getClass().getResource("/management/popUpRegistratin.fxml").openStream());
+            pane = (Pane) loader.load(getClass().getResource("/helper/people/popUpRegistratin.fxml").openStream());
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             stage.setTitle("Add Resident");
@@ -112,10 +115,11 @@ public class ResidentMangerLoader implements Initializable {
     @FXML
     public void loadDataTable() throws IOException {
         String tableName ="Resident";
-        /*ChoiceManagementControllerAdmin managementControllerAdmin =new ChoiceManagementControllerAdmin();
+        /*AdminDashBoard managementControllerAdmin =new AdminDashBoard();
         managementControllerAdmin.addTableTo();*/
         SqlDataMode dataMode = new SqlDataMode();
         dataMode.readResident(tableName);
+        residentIDT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("residentId"));
         userId.setCellValueFactory(new PropertyValueFactory<ResidentData,Integer>("userId"));
         firstName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("lastName"));

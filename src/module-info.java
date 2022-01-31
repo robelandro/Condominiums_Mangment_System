@@ -11,6 +11,9 @@ module Condominiums.Mangment.System {
     opens login;
     opens startUp;
     opens dbUtil;
-    opens helper;
-    opens management;
+    opens helper.payment;
+    opens helper.people;
+    opens helper.physical;
+    opens dashBoard;
+    opens codeBackup;
 }

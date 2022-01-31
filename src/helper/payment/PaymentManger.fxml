@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.payment.PaymentManger">
+   <children>
+      <Pane prefHeight="75.0" prefWidth="840.0" AnchorPane.bottomAnchor="605.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="searchPaymentText" layoutX="20.0" layoutY="20.0" prefHeight="35.0" prefWidth="250.0" />
+            <FontAwesomeIcon fx:id="searchPayment" iconName="SEARCH" layoutX="270.0" layoutY="50.0" size="35" />
+            <JFXButton fx:id="unpaid" layoutX="335.0" layoutY="20.0" onAction="#unpaidPressed" prefHeight="35.0" prefWidth="232.5" text="Unpaid" />
+            <JFXButton fx:id="paid" layoutX="587.5" layoutY="20.0" onAction="#paidPressed" prefHeight="35.0" prefWidth="232.5" text="Paid" />
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="95.0" prefHeight="565.0" prefWidth="555.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <ScrollPane prefHeight="565.0" prefWidth="555.0">
+               <content>
+                  <TableView fx:id="paymentTable" prefHeight="565.0" prefWidth="555.0">
+                    <columns>
+                        <TableColumn fx:id="nameTab" minWidth="100.0" prefWidth="111.0" text="Name" />
+                      <TableColumn fx:id="residentIdTab" minWidth="100.0" prefWidth="111.0" text="Resident Id" />
+                        <TableColumn fx:id="paymentPurposeTab" minWidth="100.0" prefWidth="111.0" text="Paymnet Purpose" />
+                        <TableColumn fx:id="paymentAmountTab" minWidth="100.0" prefWidth="111.0" text="Payment Amount" />
+                        <TableColumn fx:id="dateAndTime" minWidth="100.0" prefWidth="111.0" text="Date and Time" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane layoutX="598.0" layoutY="95.0" prefHeight="565.0" prefWidth="225.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="595.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <VBox prefHeight="565.0" prefWidth="225.0" spacing="20.0">
+               <children>
+                  <JFXButton fx:id="addPayment" onAction="#addPaymentPressed" prefHeight="45.0" prefWidth="201.0" text="Add Payment">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="printTable" onAction="#printTablePressed" prefHeight="45.0" prefWidth="201.0" text="Print Table" />
+                  <JFXButton fx:id="receiptPrint" onAction="#receiptPrintPressed" prefHeight="45.0" prefWidth="201.0" text="Receipt Print" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package management;
+package dashBoard;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,14 +6,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class DashBoardLauncher extends Application {
+public class AdminDashBoardLauncher extends Application {
 
 
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         Pane pane;
-        pane = (Pane) loader.load(getClass().getResource("/management/ChoiceManagementAdmin.fxml").openStream());
+        pane = (Pane) loader.load(getClass().getResource("/dashBoard/AdminDashBoard.fxml").openStream());
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.setTitle("Login Page");

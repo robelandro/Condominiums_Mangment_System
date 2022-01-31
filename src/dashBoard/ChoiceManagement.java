@@ -1,12 +1,8 @@
-package management;
+package dashBoard;
 
 import dbUtil.SqlDataMode;
-import javafx.application.Platform;
 import login.Login;
-import login.LoginController;
 import startUp.StartUp;
-
-import java.util.ServiceLoader;
 
 public class ChoiceManagement {
     public static void main(String[] args) {
@@ -19,8 +15,8 @@ public class ChoiceManagement {
         }
         else if (dataMode.rememberMe(trackerName)){
             System.out.println("Remembered");
-            DashBoardLauncher dashBoardLauncher = new DashBoardLauncher();
-            dashBoardLauncher.dashBoardLauncher();
+            AdminDashBoardLauncher adminDashBoardLauncher = new AdminDashBoardLauncher();
+            adminDashBoardLauncher.dashBoardLauncher();
         }
         else {
             System.out.println("Skipped");

@@ -52,6 +52,7 @@ public class StartUpController {
             SqlDataMode sqlDataMode = new SqlDataMode();
             sqlDataMode.programTracker(trackerName);
             sqlDataMode.loginTable(table);
+            sqlDataMode.createTableId();
             sqlDataMode.loginTableAdd(table, getStartupUserName().getText(), getStartUpPassword().getText(),access, getHint().getText());
             sqlDataMode.createTableResident("Resident");
             Stage stage = (Stage) this.getAdminCreate().getScene().getWindow();

@@ -1,4 +1,4 @@
-package management;
+package helper.people;
 
 
 import javafx.beans.property.IntegerProperty;
@@ -7,8 +7,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class ResidentData {
-    private final IntegerProperty userId;
     private final StringProperty firstName;
+    private final IntegerProperty userId;
+    private final StringProperty residentId;
     private final StringProperty lastName;
     private final StringProperty age;
     private final StringProperty address;
@@ -17,7 +18,8 @@ public class ResidentData {
     private final StringProperty phoneNumber;
     private final StringProperty houseNumber;
     private final StringProperty rentStatus;
-    public ResidentData(int userId,String firstName ,String lastName,String age, String address,String sex,String blockNumber,String phoneNumber,String houseNumber,String rentStatus){
+    public ResidentData(String residentId,int userId,String firstName ,String lastName,String age, String address,String sex,String blockNumber,String phoneNumber,String houseNumber,String rentStatus){
+        this.residentId = new SimpleStringProperty(residentId);
         this.userId = new SimpleIntegerProperty(userId);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
@@ -28,6 +30,18 @@ public class ResidentData {
         this.phoneNumber = new SimpleStringProperty(phoneNumber);
         this.houseNumber = new SimpleStringProperty(houseNumber);
         this.rentStatus = new SimpleStringProperty(rentStatus);
+    }
+
+    public String getFirstName() {
+        return firstName.get();
+    }
+
+    public StringProperty firstNameProperty() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName.set(firstName);
     }
 
     public int getUserId() {
@@ -42,16 +56,16 @@ public class ResidentData {
         this.userId.set(userId);
     }
 
-    public String getFirstName() {
-        return firstName.get();
+    public String getResidentId() {
+        return residentId.get();
     }
 
-    public StringProperty firstNameProperty() {
-        return firstName;
+    public StringProperty residentIdProperty() {
+        return residentId;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName.set(firstName);
+    public void setResidentId(String residentId) {
+        this.residentId.set(residentId);
     }
 
     public String getLastName() {

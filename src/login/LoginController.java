@@ -157,7 +157,7 @@ public class LoginController extends Thread implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane pane;
-            pane = (Pane) loader.load(getClass().getResource("/management/ChoiceManagementAdmin.fxml").openStream());
+            pane = (Pane) loader.load(getClass().getResource("/dashBoard/AdminDashBoard.fxml").openStream());
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             stage.setTitle("Login Page");
@@ -172,7 +172,7 @@ public class LoginController extends Thread implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane pane;
-            pane = (Pane) loader.load(getClass().getResource("/management/ChoiceManagementStaff.fxml").openStream());
+            pane = (Pane) loader.load(getClass().getResource("/dashBoard/StaffDashBoard.fxml").openStream());
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             stage.setTitle("Login Page");

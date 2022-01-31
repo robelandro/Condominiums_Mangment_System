@@ -1,4 +1,4 @@
-package management;
+package dashBoard;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXScrollPane;
@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class ChoiceManagementControllerStaff {
+public class StaffDashBoard {
 
     @FXML
     private Pane abovePane;

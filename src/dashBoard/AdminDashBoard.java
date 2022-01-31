@@ -1,4 +1,4 @@
-package management;
+package dashBoard;
 
 import com.jfoenix.controls.JFXButton;
 import dbUtil.SqlDataMode;
@@ -15,7 +15,7 @@ import startUp.StartUpController;
 
 import java.io.IOException;
 
-public class ChoiceManagementControllerAdmin {
+public class AdminDashBoard {
 
     @FXML
     private AnchorPane functionalPan;
@@ -43,7 +43,22 @@ public class ChoiceManagementControllerAdmin {
 
     @FXML
     void paymentMangerPressed(ActionEvent event) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
 
+                try {
+                    Node root  = FXMLLoader.load(getClass().getResource("/helper/payment/PaymentManger.fxml"));
+                    if (!functionalPan.getChildren().isEmpty()) {
+                        functionalPan.getChildren().clear();
+                    }
+                    functionalPan.getChildren().add(root);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
     }
 
     @FXML
@@ -58,7 +73,7 @@ public class ChoiceManagementControllerAdmin {
             public void run() {
 
                 try {
-                    Node root2  = FXMLLoader.load(getClass().getResource("/management/ResidentMangerLoader.fxml"));
+                    Node root2  = FXMLLoader.load(getClass().getResource("/helper/people/ResidentMangerLoader.fxml"));
                     functionalPan.getChildren().add(root2);
                 } catch (IOException e) {
                     e.printStackTrace();
