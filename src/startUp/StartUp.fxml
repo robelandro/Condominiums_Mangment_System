@@ -58,10 +58,15 @@
                         <PasswordField fx:id="confirmPassword" layoutX="238.0" layoutY="182.0" promptText="Confirm Password" />
                         <Label layoutX="142.0" layoutY="222.0" prefHeight="20.0" prefWidth="30.0" text="Hint" />
                         <TextField fx:id="hint" layoutX="239.0" layoutY="219.0" promptText="hint of password" />
-                        <Label fx:id="ErrorPrinter" layoutX="14.0" layoutY="269.0" prefHeight="18.0" prefWidth="188.0" textFill="RED">
+                        <Label fx:id="ErrorPrinter" layoutX="14.0" layoutY="261.0" prefHeight="26.0" prefWidth="188.0" textFill="RED">
                            <font>
                               <Font name="System Bold Italic" size="12.0" />
                            </font></Label>
+                        <Label fx:id="ErrorPrinter1" layoutX="14.0" layoutY="293.0" prefHeight="41.0" prefWidth="188.0" textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
             </content>

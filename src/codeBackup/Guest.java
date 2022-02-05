@@ -13,8 +13,6 @@ public class Guest extends Person{
     public void registration(){
         String tableName = "Guest";
         SqlDataMode sqlDataMode = new SqlDataMode();
-        sqlDataMode.createTableGuest(tableName);
-        sqlDataMode.addDataGuest(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber());
     }
 
     public int getPhoneNumber() {

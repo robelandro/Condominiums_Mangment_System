@@ -135,4 +135,40 @@ public class codeBackUp {
         }
     }
 
+
+
+
+
+
+
+    /*
+    *                 String [] naColumn ={"NumCount" , "ResidentId" , "FirstName" , "LastName" , "Address", "Age" , "Sex" , "PhoneNumber" , "BlockNumber", "HouseNumber", "RentStatus"};
+                ArrayList<String> read = new ArrayList<String>();
+                dataObservableList = FXCollections.observableArrayList();
+                SqlDataMode mode = new SqlDataMode();
+                String readed[][] = mode.readTable(searchA,naColumn);
+                for(int i =0;i<readed.length;i++){
+                    for (int j=0;j<readed[i].length;j++){
+                        read.add(readed[i][j]);
+                    }
+                    for (int k =0;k<read.size();k++){
+                        System.out.print(read.get(k)+" ");
+                    }
+                    System.out.println();
+                    dataObservableList.add(new ResidentData(read.get(2),Integer.parseInt(read.get(1)),read.get(3),read.get(4),read.get(5),read.get(6),read.get(7),read.get(8),read.get(9),read.get(10),read.get(11)));
+                }
+                residentIDT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("residentId"));
+                userId.setCellValueFactory(new PropertyValueFactory<ResidentData,Integer>("userId"));
+                firstName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("firstName"));
+                lastName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("lastName"));
+                age.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("age"));
+                address.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("address"));
+                sex.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("sex"));
+                phoneNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("phoneNumber"));
+                block.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("blockNumber"));
+                houseNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("houseNumber"));
+                rentStatusT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("rentStatus"));
+
+                tableView.setItems(dataObservableList);*/
+
 }

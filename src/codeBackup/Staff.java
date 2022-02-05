@@ -14,13 +14,6 @@ public class Staff extends Person{
         this.phoneNumber = phoneNumber;
     }
 
-    public void registration(){
-        String tableName = "Staff";
-        SqlDataMode sqlDataMode = new SqlDataMode();
-        sqlDataMode.createTableStaff(tableName);
-        sqlDataMode.addDataStaff(tableName,getFirstName(),getLastName(),getAddress(),getAge(),getSex(),getPhoneNumber(),getWorkResponsibility());
-    }
-
 
 
     public String getWorkResponsibility() {

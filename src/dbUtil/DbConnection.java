@@ -5,11 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnection {
-    private static final String DB_DRIVER ="org.sqlite.JDBC";
-    private static final String USERNAME ="dbUser";
-    private static final String PASSWORD ="dbPassword";
-    private static final String SQCONN ="jdbc:sqlite:cms.sqlite";
-
+    private static final String DB_URL="jdbc:derby:cmsDatabase;create=true";
+    private static final String DB_DRIVER ="org.apache.derby.jdbc.EmbeddedDriver";
     public static Connection getConnection() throws SQLException {
         Connection conn = null;
 
@@ -18,7 +15,7 @@ public class DbConnection {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        conn = DriverManager.getConnection(SQCONN);
+        conn = DriverManager.getConnection(DB_URL);
         if (conn != null){
             System.out.println("Database Connection Successfully");
         }

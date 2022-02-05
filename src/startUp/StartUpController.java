@@ -16,8 +16,12 @@ import javafx.stage.StageStyle;
 import login.LoginController;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 
 public class StartUpController {
+
+    @FXML
+    private Label ErrorPrinter1;
 
     @FXML
     private Label ErrorPrinter;
@@ -44,23 +48,43 @@ public class StartUpController {
     private TextField startupUserName;
 
     public void adminCreate(ActionEvent event){
-        String table = "Login";
+        String sqlTable = "CREATE TABLE Login (NumCount INTEGER GENERATED ALWAYS AS IDENTITY, UserName VARCHAR(30), Password VARCHAR(30), AccessLevel VARCHAR(30), Hint VARCHAR(40))";
+        String sqlInsert = "INSERT INTO Login ( UserName,Password,AccessLevel,Hint) VALUES (?,?,?,?)";
+        String sqlResident ="CREATE TABLE Resident (NumCount VARCHAR(30), ResidentId VARCHAR(30), FirstName VARCHAR(10), LastName VARCHAR(10), Address VARCHAR(20), Age VARCHAR(3), Sex VARCHAR(10), PhoneNumber VARCHAR(20), BlockNumber VARCHAR(5), HouseNumber VARCHAR(10), RentStatus VARCHAR(10))";
         String access = "Admin";
+        String [] credential = {getStartupUserName().getText(),getStartUpPassword().getText(),access,getHint().getText()};
         String trackerName ="Program";
-
-        if (getStartUpPassword().getText().endsWith(getConfirmPassword().getText())){
+        boolean check =getStartUpPassword().getText().endsWith(getConfirmPassword().getText());
+        if (check && !getNumberOfHouse().getText().isEmpty() && checkForInteger()){
+            int countNu = 1;
             SqlDataMode sqlDataMode = new SqlDataMode();
             sqlDataMode.programTracker(trackerName);
-            sqlDataMode.loginTable(table);
+            sqlDataMode.createTable(sqlTable);
             sqlDataMode.createTableId();
-            sqlDataMode.loginTableAdd(table, getStartupUserName().getText(), getStartUpPassword().getText(),access, getHint().getText());
-            sqlDataMode.createTableResident("Resident");
+            sqlDataMode.insertTable(sqlInsert,credential);
+            sqlDataMode.createTable(sqlResident);
+            while (!(countNu == Integer.parseInt(getNumberOfHouse().getText())+1)){
+                sqlDataMode.makeTable("NumCount","Resident",String.valueOf(countNu));
+                countNu++;
+            }
             Stage stage = (Stage) this.getAdminCreate().getScene().getWindow();
             stage.close();
             loginPage();
         }
         else {
+            if(getNumberOfHouse().getText().isEmpty() && !check && !checkForInteger()){
+                ErrorPrinter1.setText("Number of House Can Not Be Empty");
+                getErrorPrinter().setText("Password not match");
+            }
+            else if (getNumberOfHouse().getText().isEmpty() || !checkForInteger()){
+                getErrorPrinter().setText(" ");
+                ErrorPrinter1.setText("Please Enter Number of House" +
+                        "\nCorrectly");
+            }
+            else {
             getErrorPrinter().setText("Password not match");
+            ErrorPrinter1.setText(" ");
+            }
         }
     }
 
@@ -79,6 +103,16 @@ public class StartUpController {
             stage.show();
         }catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public boolean checkForInteger (){
+        try{
+            int add =3+Integer.parseInt(getNumberOfHouse().getText());
+            return true;
+        }
+        catch (InputMismatchException | NumberFormatException e){
+            return false;
         }
     }
 

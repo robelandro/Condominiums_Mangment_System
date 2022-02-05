@@ -6,6 +6,7 @@ import dbUtil.DbConnection;
 import dbUtil.SqlDataMode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -73,7 +74,6 @@ public class PopUpRegistration {
     @FXML
     void registerClicked(ActionEvent event) {
         String idGen = null;
-        String tableName ="Resident";
         String sexP = null ;
         String rentP = null;
         SqlDataMode dataMode = new SqlDataMode();
@@ -92,11 +92,13 @@ public class PopUpRegistration {
             if (femalePo.isSelected()){
                 sexP = "Female";
             }
-            boolean checkMe=firstNamePo.getText().isEmpty() || lastNamePo.getText().isEmpty() || addressPo.getText().isEmpty() || agePo.getText().isEmpty() || phoneNumberPo.getText().isEmpty() || blockNumberPo.getText().isEmpty() || houseNumberPo.getText().isEmpty() || sexP == null || rentPo ==null;
+            boolean checkMe=firstNamePo.getText().isEmpty() || lastNamePo.getText().isEmpty() || addressPo.getText().isEmpty() || agePo.getText().isEmpty() || phoneNumberPo.getText().isEmpty() || blockNumberPo.getText().isEmpty() || houseNumberPo.getText().isEmpty() || sexP == null || rentP ==null;
             if (!(checkMe)){
                 String residentId;
+                String sqlRegister ="UPDATE Resident SET  ResidentId = ?,FirstName = ?,LastName = ?,Address = ?,Age = ?,Sex =?,PhoneNumber = ?,BlockNumber= ?,HouseNumber=?, RentStatus =? WHERE numCount=?";
                 String sqlCheck ="SELECT * FROM IDGenerator";
                 String sqlIn="INSERT INTO IDGenerator (residentGenerated) VALUES (2)";
+                String [] checkabel ={"Resident","FirstName","LastName","HouseNumber", houseNumberPo.getText().trim()};
                 Connection connection = null;
                 PreparedStatement insert = null;
                 PreparedStatement check;
@@ -124,14 +126,34 @@ public class PopUpRegistration {
                         residentId =idGen+"1";
                     }
                     connection.close();
-                    dataMode.addDataResident(residentId,tableName,firstNamePo.getText(),lastNamePo.getText(),addressPo.getText(),agePo.getText(),sexP,phoneNumberPo.getText(),blockNumberPo.getText(),houseNumberPo.getText(),rentP);
+                    String which;
+                    if(!dataMode.dbCheckInsertExit(checkabel[0],checkabel[1],checkabel[3],checkabel[4]).equals("error")){
+                        which =dataMode.dbCheckInsertExit(checkabel[0],checkabel[1],checkabel[3],checkabel[4]);
+                        System.out.println("erro");
+                    }
+                    else if(dataMode.houseNumberExit(houseNumberPo.getText().trim())){
+                        System.out.println("ppp");
+                        which = "error";
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("UNHALLOWED ACTION");
+                        alert.setHeaderText("Duplicated House Number");
+                        alert.showAndWait();
+                    }
+                    else{
+                        which = dataMode.dbCheckInsert(checkabel[0],checkabel[1],checkabel[2]);
+                        System.out.println("no et");
+                    }
+                    String [] valueRe ={residentId,firstNamePo.getText(),lastNamePo.getText(),addressPo.getText(),agePo.getText(),sexP,phoneNumberPo.getText(),blockNumberPo.getText(),houseNumberPo.getText(),rentP,which};
+                    dataMode.updateTableSql(sqlRegister,valueRe);
                     infoPo.setText("Successes");
                 } catch (SQLException e) {
                     try {
                         insert.executeUpdate();
                         connection.close();
                         residentId =idGen+"1";
-                        dataMode.addDataResident(residentId,tableName,firstNamePo.getText(),lastNamePo.getText(),addressPo.getText(),agePo.getText(),sexP,phoneNumberPo.getText(),blockNumberPo.getText(),houseNumberPo.getText(),rentP);
+                        String which = dataMode.dbCheckInsert(checkabel[0],checkabel[1],checkabel[2]);
+                        String [] valueRe ={residentId,firstNamePo.getText(),lastNamePo.getText(),addressPo.getText(),agePo.getText(),sexP,phoneNumberPo.getText(),blockNumberPo.getText(),houseNumberPo.getText(),rentP,which};
+                        dataMode.updateTableSql(sqlRegister,valueRe);
                         infoPo.setText("Successes");
                     } catch (SQLException ex) {
                         ex.printStackTrace();

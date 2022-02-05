@@ -6,6 +6,13 @@ module Condominiums.Mangment.System {
     requires java.sql;
     requires com.jfoenix;
     requires fontawesomefx;
+    requires org.apache.derby.tools;
+    requires org.apache.derby.client;
+    requires org.apache.derby.engine;
+    requires org.apache.derby.runner;
+    requires org.apache.derby.server;
+    requires org.apache.derby.optionaltools;
+    requires org.apache.derby.commons;
 
 
     opens login;

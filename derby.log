@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Feb 04 11:13:03 WGT 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-017e-c514-cd2f-000007ad2940 
+on database directory C:\Users\Family\IdeaProjects\Condominiums Mangment System\cmsDatabase with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f91beef 
+Loaded from file:/C:/Users/Family/IdeaProjects/Condominiums%20Mangment%20System/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=17.0.1+12-LTS-39
+user.dir=C:\Users\Family\IdeaProjects\Condominiums Mangment System
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

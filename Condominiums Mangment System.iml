@@ -12,5 +12,12 @@
     <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.36.0.3" level="project" />
     <orderEntry type="library" name="fontawesomefx-8.1" level="project" />
+    <orderEntry type="library" name="derby" level="project" />
+    <orderEntry type="library" name="derbyclient" level="project" />
+    <orderEntry type="library" name="derbynet" level="project" />
+    <orderEntry type="library" name="derbytools" level="project" />
+    <orderEntry type="library" name="derbyoptionaltools" level="project" />
+    <orderEntry type="library" name="derbyrun" level="project" />
+    <orderEntry type="library" name="derbyshared" level="project" />
   </component>
 </module>

@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXScrollPane?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -12,11 +14,11 @@
    <children>
       <AnchorPane prefHeight="75.0" prefWidth="840.0" AnchorPane.bottomAnchor="605.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton fx:id="addResident" layoutY="12.0" onAction="#addResidentP" prefHeight="45.0" prefWidth="150.0" text="Add Resident" />
-            <JFXButton fx:id="removeResident" layoutX="200.0" layoutY="12.0" onAction="#removeResidentP" prefHeight="45.0" prefWidth="150.0" text="Remove Resident" />
-            <FontAwesomeIcon fx:id="SearchPressed" iconName="SEARCH" layoutX="600.0" layoutY="45.0" size="35" />
-            <TextField fx:id="SearchFiled" layoutX="400.0" layoutY="20.0" prefHeight="35.0" prefWidth="200.0" />
-            <JFXButton fx:id="refreshTable" layoutX="670.0" layoutY="10.0" onAction="#refreshablePressed" prefHeight="45.0" prefWidth="150.0" text="Refresh Table" />
+            <JFXButton fx:id="addResident" layoutY="12.0" onAction="#addResidentP" prefHeight="45.0" prefWidth="150.0" text="Add Resident" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="690.0" AnchorPane.topAnchor="12.0" />
+            <JFXButton fx:id="printTable" layoutX="200.0" layoutY="12.0" onAction="#printTablePressed" prefHeight="45.0" prefWidth="150.0" text="Print Table" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="12.0" />
+            <FontAwesomeIcon fx:id="SearchPressed" iconName="SEARCH" layoutX="600.0" layoutY="45.0" size="35" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="599.5" AnchorPane.rightAnchor="207.5" AnchorPane.topAnchor="15.0" />
+            <TextField fx:id="SearchFiled" layoutX="400.0" layoutY="20.0" prefHeight="35.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="20.0" />
+            <JFXButton fx:id="refreshTable" layoutX="670.0" layoutY="10.0" onAction="#refreshablePressed" prefHeight="45.0" prefWidth="150.0" text="Refresh Table" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="670.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
       <JFXScrollPane layoutY="100.0" prefHeight="580.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
@@ -37,6 +39,15 @@
                         <TableColumn fx:id="houseNumber" maxWidth="200.0" minWidth="85.0" prefWidth="136.0" text="HouseNumber" />
                         <TableColumn fx:id="rentStatusT" maxWidth="100.0" minWidth="85.0" prefWidth="93.0" text="Rent Status" />
                      </columns>
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem fx:id="deleteUser" mnemonicParsing="false" onAction="#deleteUserPressed" text="Delete User" />
+                              <MenuItem fx:id="addUser" mnemonicParsing="false" onAction="#addUserPressed" text="Add User" />
+                              <MenuItem fx:id="printSelected" mnemonicParsing="false" onAction="#printSelectedPressed" text="Print Selected Info" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
                   </TableView>
                </children>
             </AnchorPane>
