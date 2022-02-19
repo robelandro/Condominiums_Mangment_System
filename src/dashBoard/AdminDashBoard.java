@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import startUp.StartUpController;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class AdminDashBoard {
 
@@ -73,8 +74,11 @@ public class AdminDashBoard {
             public void run() {
 
                 try {
-                    Node root2  = FXMLLoader.load(getClass().getResource("/helper/people/ResidentMangerLoader.fxml"));
-                    functionalPan.getChildren().add(root2);
+                    Node root  = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/helper/people/ResidentMangerLoader.fxml")));
+                    if (!functionalPan.getChildren().isEmpty()) {
+                        functionalPan.getChildren().clear();
+                    }
+                    functionalPan.getChildren().add(root);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -97,6 +101,25 @@ public class AdminDashBoard {
 
     @FXML
     void staffMangerPressed(ActionEvent event) {
+
+    }
+    @FXML
+    void carManagementPressed(ActionEvent event) {
+
+    }
+
+    @FXML
+    void householdManagementPressed(ActionEvent event) {
+
+    }
+
+    @FXML
+    void staffloginMangerPressed(ActionEvent event) {
+
+    }
+
+    @FXML
+    void shiftMakerPressed(ActionEvent event) {
 
     }
 

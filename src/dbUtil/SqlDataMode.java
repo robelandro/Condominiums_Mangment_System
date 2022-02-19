@@ -399,5 +399,18 @@ public class SqlDataMode {
             return chcked;
         }
     }
+    public void sqlExecute(String sql){
+        Connection connection;
+        PreparedStatement preparedStatement;
+        try {
+            connection = DbConnection.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -18,7 +18,7 @@
             <TextField fx:id="searchPaymentText" layoutX="20.0" layoutY="20.0" prefHeight="35.0" prefWidth="250.0" />
             <FontAwesomeIcon fx:id="searchPayment" iconName="SEARCH" layoutX="270.0" layoutY="50.0" size="35" />
             <JFXButton fx:id="unpaid" layoutX="335.0" layoutY="20.0" onAction="#unpaidPressed" prefHeight="35.0" prefWidth="232.5" text="Unpaid" />
-            <JFXButton fx:id="paid" layoutX="587.5" layoutY="20.0" onAction="#paidPressed" prefHeight="35.0" prefWidth="232.5" text="Paid" />
+            <JFXButton fx:id="paid" layoutX="587.5" layoutY="20.0" onAction="#paidPressed" prefHeight="35.0" prefWidth="232.5" text="Refresh Table" />
          </children>
       </Pane>
       <Pane layoutX="20.0" layoutY="95.0" prefHeight="565.0" prefWidth="555.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="95.0">
@@ -47,8 +47,9 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </JFXButton>
-                  <JFXButton fx:id="printTable" onAction="#printTablePressed" prefHeight="45.0" prefWidth="201.0" text="Print Table" />
+                  <JFXButton fx:id="paymnetStatuse" layoutX="20.0" layoutY="160.0" onAction="#paymentStatusPressed" prefHeight="45.0" prefWidth="201.0" text="Payment Status" />
                   <JFXButton fx:id="receiptPrint" onAction="#receiptPrintPressed" prefHeight="45.0" prefWidth="201.0" text="Receipt Print" />
+                  <JFXButton fx:id="printTable" onAction="#printTablePressed" prefHeight="45.0" prefWidth="201.0" text="Print Table" />
                </children>
                <padding>
                   <Insets left="10.0" />

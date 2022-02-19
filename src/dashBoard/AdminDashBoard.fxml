@@ -4,11 +4,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashBoard.AdminDashBoard">
    <children>
@@ -41,11 +43,41 @@
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
+               <graphic>
+                  <MenuBar prefHeight="45.0" prefWidth="255.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Propertiy Manger">
+                        <items>
+                          <MenuItem mnemonicParsing="false" onAction="#carManagementPressed" text="Car Mangement" />
+                              <MenuItem mnemonicParsing="false" onAction="#householdManagementPressed" text="Household Mangement" />
+                        </items>
+                      </Menu>
+                    </menus>
+                     <padding>
+                        <Insets left="75.0" />
+                     </padding>
+                  </MenuBar>
+               </graphic>
             </JFXButton>
             <JFXButton fx:id="staffManger" layoutX="10.0" layoutY="100.0" onAction="#staffMangerPressed" prefHeight="45.0" prefWidth="255.0" text="Staff Manger">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
+               <graphic>
+                  <MenuBar prefHeight="45.0" prefWidth="255.0">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="Staff Manger">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#shiftMakerPressed" text="Shift Maker" />
+                              <MenuItem mnemonicParsing="false" onAction="#staffloginMangerPressed" text="Staff login Manger" />
+                           </items>
+                        </Menu>
+                     </menus>
+                     <padding>
+                        <Insets left="75.0" />
+                     </padding>
+                  </MenuBar>
+               </graphic>
             </JFXButton>
             <JFXButton fx:id="signOut" layoutX="10.0" layoutY="145.0" onAction="#signOutPressed" prefHeight="45.0" prefWidth="255.0" text="Sign Out">
                <VBox.margin>

@@ -1,30 +1,23 @@
 package helper.people;
 
 import com.jfoenix.controls.JFXButton;
-import dbUtil.DbConnection;
 import dbUtil.SqlDataMode;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
@@ -139,19 +132,7 @@ public class ResidentMangerLoader implements Initializable {
         managementControllerAdmin.addTableTo();*/
         SqlDataMode dataMode = new SqlDataMode();
         dataMode.readResident(tableName);
-        residentIDT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("residentId"));
-        userId.setCellValueFactory(new PropertyValueFactory<ResidentData,Integer>("userId"));
-        firstName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("firstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("lastName"));
-        age.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("age"));
-        address.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("address"));
-        sex.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("sex"));
-        phoneNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("phoneNumber"));
-        block.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("blockNumber"));
-        houseNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("houseNumber"));
-        rentStatusT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("rentStatus"));
-
-        tableView.setItems(dataMode.dataObservableList);
+        columnTable(dataMode.dataObservableList);
 
     }
 
@@ -169,10 +150,12 @@ public class ResidentMangerLoader implements Initializable {
             alert.setContentText("Are You Sure to Delete: "+selected.getFirstName()+" ?");
             Optional<ButtonType> answer = alert.showAndWait();
             if (answer.get()==ButtonType.OK){
+                String deleteG ="DELETE FROM PAYMENTTABLE WHERE ResidentId = '"+selected.getResidentId()+"'";
                 String deleteF ="UPDATE Resident SET  ResidentId = ?,FirstName = ?,LastName = ?,Address = ?,Age = ?,Sex =?,PhoneNumber = ?, RentStatus =? WHERE ResidentId =?";
                 String[] deleteValue ={null,null,null,null,null,null,null,null,selected.getResidentId()};
                 SqlDataMode dataMode=new SqlDataMode();
                 dataMode.updateTableSql(deleteF,deleteValue);
+                dataMode.sqlExecute(deleteG);
                 try {
                     loadDataTable();
                 } catch (IOException e) {
@@ -180,7 +163,7 @@ public class ResidentMangerLoader implements Initializable {
                 }
             }
             else {
-                Alert alert1 = new Alert(Alert.AlertType.NONE);
+                Alert alert1 = new Alert(Alert.AlertType.ERROR);
                 alert1.setTitle("Canceled");
                 alert1.setContentText("Canceled Successful");
                 alert1.show();
@@ -218,20 +201,9 @@ public class ResidentMangerLoader implements Initializable {
                 for (String[] strings : readed) {
                     Collections.addAll(read, strings);
                     dataObservableList.add(new ResidentData(read.get(1), Integer.parseInt(read.get(0)), read.get(2), read.get(3), read.get(4), read.get(5), read.get(6), read.get(7), read.get(8), read.get(9), read.get(10)));
+                    read.clear();
                 }
-                residentIDT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("residentId"));
-                userId.setCellValueFactory(new PropertyValueFactory<ResidentData,Integer>("userId"));
-                firstName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("firstName"));
-                lastName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("lastName"));
-                age.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("age"));
-                address.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("address"));
-                sex.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("sex"));
-                phoneNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("phoneNumber"));
-                block.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("blockNumber"));
-                houseNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("houseNumber"));
-                rentStatusT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("rentStatus"));
-
-                tableView.setItems(dataObservableList);
+                columnTable(dataObservableList);
             }
         });
         try {
@@ -239,5 +211,20 @@ public class ResidentMangerLoader implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void columnTable(ObservableList<ResidentData> dataObservableList1){
+        residentIDT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("residentId"));
+        userId.setCellValueFactory(new PropertyValueFactory<ResidentData,Integer>("userId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("firstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("lastName"));
+        age.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("age"));
+        address.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("address"));
+        sex.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("sex"));
+        phoneNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("phoneNumber"));
+        block.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("blockNumber"));
+        houseNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("houseNumber"));
+        rentStatusT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("rentStatus"));
+
+        tableView.setItems(dataObservableList1);
     }
 }

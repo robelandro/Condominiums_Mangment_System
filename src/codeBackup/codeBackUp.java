@@ -171,4 +171,19 @@ public class codeBackUp {
 
                 tableView.setItems(dataObservableList);*/
 
+    /*        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        String readA ="SELECT * FROM PaymentTable";
+        try {
+            connection = DbConnection.getConnection();
+            preparedStatement = connection.prepareStatement(readA);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                dataObservableList.add(new PaymentData(resultSet.getString("Name"),resultSet.getString("ResidentId"),resultSet.getString("PaymentPurpose"),resultSet.getString("PaymentAmount"),resultSet.getString("DateAndTime")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
+
 }
