@@ -16,6 +16,18 @@ public class Shift {
             System.out.println("Error");
         }
     }
+    public String shiftCheck(String name,String dateName){
+        String string ="Select "+dateName+" From Shift Where StaffName ='"+name+"'";
+        String[] column ={dateName};
+        SqlDataMode dataMode =new SqlDataMode();
+        String[][] read =dataMode.readTable(string,column);
+        if (!(read.length==0)){
+            return read[0][0];
+        }
+        else {
+            return null;
+        }
+    }
 
 
 }

@@ -31,13 +31,15 @@
                         <TableColumn fx:id="residentIDT" maxWidth="100.0" minWidth="70.0" prefWidth="85.0" text="Resident ID" />
                         <TableColumn fx:id="firstName" maxWidth="200.0" minWidth="120.0" prefWidth="145.0" text="FirstName" />
                         <TableColumn fx:id="lastName" maxWidth="200.0" minWidth="85.0" prefWidth="110.0" text="LastName" />
-                        <TableColumn fx:id="address" maxWidth="200.0" minWidth="85.0" prefWidth="102.0" text="Address" />
                         <TableColumn fx:id="age" maxWidth="50.0" prefWidth="30.0" text="Age" />
                         <TableColumn fx:id="sex" maxWidth="100.0" prefWidth="53.0" text="Sex" />
                         <TableColumn fx:id="phoneNumber" maxWidth="200.0" minWidth="150.0" prefWidth="168.0" text="Phone Number" />
                         <TableColumn fx:id="block" maxWidth="70.0" minWidth="20.0" prefWidth="50.0" text="Block" />
                         <TableColumn fx:id="houseNumber" maxWidth="200.0" minWidth="85.0" prefWidth="136.0" text="HouseNumber" />
                         <TableColumn fx:id="rentStatusT" maxWidth="100.0" minWidth="85.0" prefWidth="93.0" text="Rent Status" />
+                        <TableColumn fx:id="areaPop" maxWidth="100.0" minWidth="85.0" prefWidth="93.0" text="Area" />
+                        <TableColumn fx:id="floorPop" maxWidth="100.0" minWidth="85.0" prefWidth="93.0" text="Floor" />
+                        <TableColumn fx:id="parttionPop" maxWidth="100.0" minWidth="85.0" prefWidth="93.0" text="Parttion" />
                      </columns>
                      <contextMenu>
                         <ContextMenu>

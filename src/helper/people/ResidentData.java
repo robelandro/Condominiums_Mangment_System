@@ -12,24 +12,29 @@ public class ResidentData {
     private final StringProperty residentId;
     private final StringProperty lastName;
     private final StringProperty age;
-    private final StringProperty address;
     private final StringProperty sex;
     private final StringProperty blockNumber;
     private final StringProperty phoneNumber;
     private final StringProperty houseNumber;
     private final StringProperty rentStatus;
-    public ResidentData(String residentId,int userId,String firstName ,String lastName,String age, String address,String sex,String blockNumber,String phoneNumber,String houseNumber,String rentStatus){
+    private final StringProperty area;
+    private final StringProperty floor;
+    private final StringProperty part;
+
+    public ResidentData(int userId,String residentId,String firstName, String lastName, String age, String sex, String blockNumber, String phoneNumber, String houseNumber, String rentStatus, String area, String floor, String part){
         this.residentId = new SimpleStringProperty(residentId);
         this.userId = new SimpleIntegerProperty(userId);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
         this.age = new SimpleStringProperty(age);
-        this.address = new SimpleStringProperty(address);
         this.sex = new SimpleStringProperty(sex);
         this.blockNumber = new SimpleStringProperty(blockNumber);
         this.phoneNumber = new SimpleStringProperty(phoneNumber);
         this.houseNumber = new SimpleStringProperty(houseNumber);
         this.rentStatus = new SimpleStringProperty(rentStatus);
+        this.area = new SimpleStringProperty(area);
+        this.floor = new SimpleStringProperty(floor);
+        this.part = new SimpleStringProperty(part);
     }
 
     public String getFirstName() {
@@ -92,18 +97,6 @@ public class ResidentData {
         this.age.set(age);
     }
 
-    public String getAddress() {
-        return address.get();
-    }
-
-    public StringProperty addressProperty() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address.set(address);
-    }
-
     public String getSex() {
         return sex.get();
     }
@@ -162,5 +155,41 @@ public class ResidentData {
 
     public void setRentStatus(String rentStatus) {
         this.rentStatus.set(rentStatus);
+    }
+
+    public String getArea() {
+        return area.get();
+    }
+
+    public StringProperty areaProperty() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area.set(area);
+    }
+
+    public String getFloor() {
+        return floor.get();
+    }
+
+    public StringProperty floorProperty() {
+        return floor;
+    }
+
+    public void setFloor(String floor) {
+        this.floor.set(floor);
+    }
+
+    public String getPart() {
+        return part.get();
+    }
+
+    public StringProperty partProperty() {
+        return part;
+    }
+
+    public void setPart(String part) {
+        this.part.set(part);
     }
 }

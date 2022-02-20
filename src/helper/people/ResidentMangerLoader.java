@@ -41,8 +41,12 @@ public class ResidentMangerLoader implements Initializable {
     private TableColumn<ResidentData, String> residentIDT;
 
     @FXML
-    private TableColumn<ResidentData, String> address;
+    private TableColumn<ResidentData, String> parttionPop;
+    @FXML
+    private TableColumn<ResidentData, String> areaPop;
 
+    @FXML
+    private TableColumn<ResidentData, String> floorPop;
     @FXML
     private TableColumn<ResidentData, String> age;
 
@@ -192,15 +196,15 @@ public class ResidentMangerLoader implements Initializable {
                 alert.show();
             }
             else {
-                String searchA ="SELECT * FROM Resident WHERE FirstName LIKE '%"+SearchFiled.getText().trim()+"%' OR LastName LIKE '%"+SearchFiled.getText().trim()+"%'";
-                String [] naColumn ={"NumCount" , "ResidentId" , "FirstName" , "LastName" , "Address", "Age" , "Sex" , "PhoneNumber" , "BlockNumber", "HouseNumber", "RentStatus"};
+                String searchA ="SELECT NumCount , ResidentId ,FirstName , LastName , Age , Sex ,PhoneNumber , BlockNumber , HouseNumber , RentStatus ,Area ,Floor,Part FROM Resident WHERE FirstName LIKE '%"+SearchFiled.getText().trim()+"%' OR LastName LIKE '%"+SearchFiled.getText().trim()+"%'";
+                String [] naColumn ={"NumCount" ,"ResidentId" ,"FirstName" , "LastName" , "Age" , "Sex" ,"PhoneNumber", "BlockNumber" , "HouseNumber" , "RentStatus" ,"Area ","Floor","Part"};
                 ArrayList<String> read = new ArrayList<String>();
                 dataObservableList = FXCollections.observableArrayList();
                 SqlDataMode mode = new SqlDataMode();
                 String readed[][] = mode.readTable(searchA,naColumn);
                 for (String[] strings : readed) {
                     Collections.addAll(read, strings);
-                    dataObservableList.add(new ResidentData(read.get(1), Integer.parseInt(read.get(0)), read.get(2), read.get(3), read.get(4), read.get(5), read.get(6), read.get(7), read.get(8), read.get(9), read.get(10)));
+                    dataObservableList.add(new ResidentData(Integer.parseInt(read.get(0)),read.get(1), read.get(2), read.get(3), read.get(4), read.get(5), read.get(6), read.get(7), read.get(8), read.get(9), read.get(10),read.get(11),read.get(12)));
                     read.clear();
                 }
                 columnTable(dataObservableList);
@@ -218,12 +222,14 @@ public class ResidentMangerLoader implements Initializable {
         firstName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("lastName"));
         age.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("age"));
-        address.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("address"));
         sex.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("sex"));
         phoneNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("phoneNumber"));
         block.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("blockNumber"));
         houseNumber.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("houseNumber"));
         rentStatusT.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("rentStatus"));
+        areaPop.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("area"));
+        floorPop.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("floor"));
+        parttionPop.setCellValueFactory(new PropertyValueFactory<ResidentData,String>("part"));
 
         tableView.setItems(dataObservableList1);
     }

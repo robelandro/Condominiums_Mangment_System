@@ -185,7 +185,7 @@ public class SqlDataMode {
         Connection connection = null;
         ResultSet resultSet = null;
         dataObservableList = FXCollections.observableArrayList();
-        String sqlRead ="SELECT * FROM "+tableName;
+        String sqlRead ="SELECT NumCount , ResidentId ,FirstName , LastName , Age , Sex ,PhoneNumber , BlockNumber , HouseNumber , RentStatus ,Area ,Floor,Part FROM "+tableName;
 
         try {
             connection = DbConnection.getConnection();
@@ -193,7 +193,7 @@ public class SqlDataMode {
             PreparedStatement statement =connection.prepareStatement(sqlRead);
             resultSet =statement.executeQuery();
             while (resultSet.next()){
-                dataObservableList.add(new ResidentData(resultSet.getString(2),resultSet.getInt(1),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8),resultSet.getString(9),resultSet.getString(10),resultSet.getString(11)));
+                dataObservableList.add(new ResidentData(resultSet.getInt("NumCount"),resultSet.getString("ResidentId"),resultSet.getString("FirstName"),resultSet.getString("LastName"),resultSet.getString("Age"),resultSet.getString("Sex"),resultSet.getString("PhoneNumber"),resultSet.getString("BlockNumber"),resultSet.getString("HouseNumber"),resultSet.getString("RentStatus"),resultSet.getString("Area"),resultSet.getString("Floor"),resultSet.getString("Part")));
             }
 
         }

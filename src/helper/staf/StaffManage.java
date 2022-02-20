@@ -3,7 +3,7 @@ package helper.staf;
 import dbUtil.SqlDataMode;
 
 public class StaffManage {
-    public void registerStaff(String userName,String password,String accessLevel,String hint){
+    public void registerStaffLogin(String userName,String password,String accessLevel,String hint){
         String sqlInsert = "INSERT INTO Login ( UserName,Password,AccessLevel,Hint) VALUES (?,?,?,?)";
         String [] sqlValue ={userName,password,accessLevel,hint};
         SqlDataMode dataMode = new SqlDataMode();
@@ -20,5 +20,8 @@ public class StaffManage {
         String delete ="DELETE FROM Login Where UserName ='" + userName+"' And Password='" + password+"' And AccessLevel='" + accessLevel+"'";
         SqlDataMode dataMode = new SqlDataMode();
         dataMode.sqlExecute(delete);
+    }
+    public void registerStaff(){
+
     }
 }

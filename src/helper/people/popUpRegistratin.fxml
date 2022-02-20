@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.people.PopUpRegistration">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.people.PopUpRegistration">
    <children>
-      <VBox layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="430.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="430.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <HBox prefHeight="45.0" prefWidth="450.0" spacing="10.0">
                <children>
@@ -68,14 +68,48 @@
                   <Insets top="10.0" />
                </padding>
             </HBox>
-            <HBox layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+            <HBox layoutX="10.0" layoutY="145.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
                <children>
-                  <Label prefHeight="25.0" prefWidth="150.0" text="Address">
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Area">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="addressPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                  <TextField fx:id="areaPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Floor">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="floorPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="190.0" prefHeight="45.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="150.0" text="Partition">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="partitionPo" alignment="CENTER" prefHeight="25.0" prefWidth="250.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -174,8 +208,8 @@
             </HBox>
          </children>
       </VBox>
-      <JFXButton fx:id="registerPo" layoutX="186.0" layoutY="425.0" onAction="#registerClicked" prefHeight="25.0" prefWidth="250.0" text="Register" />
-      <Label fx:id="infoPo" layoutX="20.0" layoutY="430.0" prefHeight="45.0" text="info" textFill="#f22929" />
-      <JFXButton fx:id="cancelPo" layoutX="236.0" layoutY="461.0" onAction="#cancelClicked" prefHeight="25.0" prefWidth="150.0" text="Cancel" />
+      <JFXButton fx:id="registerPo" layoutX="186.0" layoutY="500.0" onAction="#registerClicked" prefHeight="25.0" prefWidth="250.0" text="Register" />
+      <Label fx:id="infoPo" layoutX="20.0" layoutY="500.0" prefHeight="45.0" text="info" textFill="#f22929" />
+      <JFXButton fx:id="cancelPo" layoutX="236.0" layoutY="550.0" onAction="#cancelClicked" prefHeight="25.0" prefWidth="150.0" text="Cancel" />
    </children>
 </AnchorPane>

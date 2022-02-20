@@ -22,5 +22,5 @@ module Condominiums.Mangment.System {
     opens helper.people;
     opens helper.physical;
     opens dashBoard;
-    opens codeBackup;
+    opens helper.Info;
 }
