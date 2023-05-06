@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="500.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.staf.BrokerFind">
+   <children>
+      <ScrollPane layoutX="20.0" layoutY="20.0" prefHeight="460.0" prefWidth="400.0">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TableView fx:id="brokerFindTable" prefHeight="460.0">
+                     <columns>
+                        <TableColumn fx:id="blockNumber" maxWidth="100.0" prefWidth="90.0" text="Block Number" />
+                        <TableColumn fx:id="phoneNumber" maxWidth="200.0" prefWidth="90.0" text="Phone Number" />
+                        <TableColumn fx:id="houseNumber" maxWidth="200.0" prefWidth="90.0" text="House Number" />
+                        <TableColumn fx:id="money" maxWidth="200.0" prefWidth="90.0" text="Money" />
+                        <TableColumn fx:id="senario" maxWidth="200.0" prefWidth="90.0" text="Senario" />
+                        <TableColumn fx:id="area" maxWidth="200.0" prefWidth="90.0" text="Area" />
+                        <TableColumn fx:id="floor" maxWidth="200.0" prefWidth="90.0" text="Floor" />
+                        <TableColumn fx:id="part" maxWidth="200.0" prefWidth="90.0" text="Part" />
+                     </columns>
+                  </TableView>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+      <VBox layoutX="440.0" layoutY="20.0" prefHeight="460.0" prefWidth="210.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="210.0" text="Area" />
+            <HBox prefHeight="40.0" prefWidth="210.0">
+               <children>
+                  <TextField fx:id="areaNum" prefHeight="40.0" prefWidth="100.0" />
+                  <Spinner fx:id="areaCompare" prefHeight="40.0" prefWidth="110.0" />
+               </children>
+            </HBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="210.0" text="Floor" />
+            <TextField fx:id="floorTxt" layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="210.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="210.0" text="Part" />
+            <TextField fx:id="partTxt" layoutX="10.0" layoutY="130.0" prefHeight="40.0" prefWidth="210.0" />
+            <Spinner fx:id="saleOr" prefHeight="40.0" prefWidth="210.0" />
+            <JFXButton onAction="#searchPressed" prefHeight="50.0" prefWidth="210.0" text="Search" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

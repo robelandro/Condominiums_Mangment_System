@@ -158,8 +158,5 @@ public class CarManagement implements TobeApplied{
                 e.printStackTrace();
             }
         }
-
     }
-
-
 }

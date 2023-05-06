@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.staf.StaffManger">
+   <children>
+      <ScrollPane layoutX="20.0" layoutY="20.0" prefHeight="280.0" prefWidth="800.0" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TableView fx:id="staffDataTabel" prefHeight="280.0" prefWidth="800.0">
+                    <columns>
+                      <TableColumn fx:id="nameTAb" maxWidth="150.0" prefWidth="100.0" text="Name" />
+                      <TableColumn fx:id="nameIdTab" maxWidth="150.0" prefWidth="100.0" text="NameId" />
+                        <TableColumn fx:id="lastNameTAb" maxWidth="150.0" prefWidth="100.0" text="LastName" />
+                        <TableColumn fx:id="ageTAb" maxWidth="150.0" prefWidth="100.0" text="Age" />
+                        <TableColumn fx:id="addressTAb" maxWidth="150.0" prefWidth="100.0" text="Address" />
+                        <TableColumn fx:id="sexTab" maxWidth="150.0" prefWidth="100.0" text="Sex" />
+                        <TableColumn fx:id="responsibilityTab" maxWidth="186.0" prefWidth="186.0" text="Responsibility" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <VBox layoutX="20.0" layoutY="318.0" prefHeight="340.0" prefWidth="350.0">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="135.0" text="Name" />
+                  <TextField fx:id="nameTxt" prefHeight="40.0" prefWidth="215.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="135.0" text="NameId" />
+                  <TextField fx:id="nameIdTxt" prefHeight="40.0" prefWidth="215.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="135.0" text="LastName" />
+                  <TextField fx:id="lastNameTxt" prefHeight="40.0" prefWidth="215.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="135.0" text="Age" />
+                  <TextField fx:id="ageTxt" prefHeight="40.0" prefWidth="215.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="130.0" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="135.0" text="Address" />
+                  <TextField fx:id="addressTxt" prefHeight="40.0" prefWidth="215.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="170.0" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="135.0" text="Sex" />
+                  <TextField fx:id="sexTxt" prefHeight="40.0" prefWidth="215.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="210.0" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="135.0" text="Responsibility" />
+                  <TextField fx:id="responsibilityTxt" prefHeight="40.0" prefWidth="215.0" />
+               </children>
+            </HBox>
+            <JFXButton onAction="#SavePStafInf" prefHeight="40.0" prefWidth="350.0" text="Save" />
+         </children>
+      </VBox>
+      <VBox layoutX="392.0" layoutY="320.0" prefHeight="340.0" prefWidth="430.0">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="430.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="200.0" text="UserName" />
+                  <TextField fx:id="userName" prefHeight="40.0" prefWidth="230.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="430.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="200.0" text="Password" />
+                  <TextField fx:id="password" prefHeight="40.0" prefWidth="230.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="430.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="200.0" text="Confirm Password" />
+                  <TextField fx:id="confirmPassword" prefHeight="40.0" prefWidth="230.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="430.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="200.0" text="AccessLevel" />
+                  <Spinner fx:id="accessLevel" prefHeight="40.0" prefWidth="230.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="130.0" prefHeight="40.0" prefWidth="430.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="200.0" text="Hint" />
+                  <TextField fx:id="hint" prefHeight="40.0" prefWidth="230.0" />
+               </children>
+            </HBox>
+            <JFXButton onAction="#saveCredential" prefHeight="40.0" prefWidth="430.0" text="Save" />
+            <JFXButton layoutX="10.0" layoutY="210.0" onAction="#loginTable" prefHeight="40.0" prefWidth="430.0" text="login Table" />
+            <Label fx:id="info" alignment="CENTER" prefHeight="40.0" prefWidth="430.0" text="Info" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

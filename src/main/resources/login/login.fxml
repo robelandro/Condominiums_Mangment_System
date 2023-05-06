@@ -121,7 +121,7 @@
          <children>
             <ImageView fx:id="buttonClose" fitHeight="50.0" fitWidth="45.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@close.png" />
+                  <Image url="/login/close.png" />
                </image>
             </ImageView>
          </children>

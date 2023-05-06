@@ -16,7 +16,7 @@ public class AdminDashBoardLauncher extends Application {
         pane = (Pane) loader.load(getClass().getResource("/dashBoard/AdminDashBoard.fxml").openStream());
         Scene scene = new Scene(pane);
         stage.setScene(scene);
-        stage.setTitle("Login Page");
+        stage.setTitle("Admin DashBoard");
         stage.setResizable(false);
         stage.show();
     }

@@ -7,6 +7,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +28,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ResidentMangerLoader implements Initializable {
+
+    public String name = null;
 
     @FXML
     private MenuItem addUser;
@@ -154,9 +160,28 @@ public class ResidentMangerLoader implements Initializable {
             alert.setContentText("Are You Sure to Delete: "+selected.getFirstName()+" ?");
             Optional<ButtonType> answer = alert.showAndWait();
             if (answer.get()==ButtonType.OK){
+
+                try {
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader();
+                    Pane pane;
+                    pane = (Pane) loader.load(getClass().getResource("/helper/people/deletPopUp.fxml").openStream());
+                    Scene scene = new Scene(pane);
+                    scene.setFill(Color.TRANSPARENT);
+                    stage.setScene(scene);
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.setTitle("Add Resident");
+                    name =selected.getResidentId();
+                    ((DeletPopUp)loader.getController()).init(stage);
+                    stage.setResizable(false);
+                    stage.showAndWait();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 String deleteG ="DELETE FROM PAYMENTTABLE WHERE ResidentId = '"+selected.getResidentId()+"'";
-                String deleteF ="UPDATE Resident SET  ResidentId = ?,FirstName = ?,LastName = ?,Address = ?,Age = ?,Sex =?,PhoneNumber = ?, RentStatus =? WHERE ResidentId =?";
-                String[] deleteValue ={null,null,null,null,null,null,null,null,selected.getResidentId()};
+                String deleteF ="UPDATE Resident SET  ResidentId = ?,FirstName = ?,LastName = ?,Age = ?,Sex =?,PhoneNumber = ?, RentStatus =? WHERE ResidentId =?";
+                String[] deleteValue ={null,null,null,null,null,null,null,selected.getResidentId()};
                 SqlDataMode dataMode=new SqlDataMode();
                 dataMode.updateTableSql(deleteF,deleteValue);
                 dataMode.sqlExecute(deleteG);
@@ -196,14 +221,15 @@ public class ResidentMangerLoader implements Initializable {
                 alert.show();
             }
             else {
-                String searchA ="SELECT NumCount , ResidentId ,FirstName , LastName , Age , Sex ,PhoneNumber , BlockNumber , HouseNumber , RentStatus ,Area ,Floor,Part FROM Resident WHERE FirstName LIKE '%"+SearchFiled.getText().trim()+"%' OR LastName LIKE '%"+SearchFiled.getText().trim()+"%'";
-                String [] naColumn ={"NumCount" ,"ResidentId" ,"FirstName" , "LastName" , "Age" , "Sex" ,"PhoneNumber", "BlockNumber" , "HouseNumber" , "RentStatus" ,"Area ","Floor","Part"};
+                String searchA ="SELECT NumCount , ResidentId ,FirstName , LastName , Age , Sex ,PhoneNumber , BlockNumber , HouseNumber , RentStatus ,Area ,Floor, Part FROM Resident WHERE FirstName LIKE '%"+SearchFiled.getText().trim()+"%' OR LastName LIKE '%"+SearchFiled.getText().trim()+"%'";
+                String [] naColumn ={"NumCount" ,"ResidentId" ,"FirstName" , "LastName" , "Age" , "Sex" ,"PhoneNumber", "BlockNumber" , "HouseNumber" , "RentStatus" ,"Area","Floor","Part"};
                 ArrayList<String> read = new ArrayList<String>();
                 dataObservableList = FXCollections.observableArrayList();
                 SqlDataMode mode = new SqlDataMode();
                 String readed[][] = mode.readTable(searchA,naColumn);
                 for (String[] strings : readed) {
                     Collections.addAll(read, strings);
+                    System.out.println(read.get(12));
                     dataObservableList.add(new ResidentData(Integer.parseInt(read.get(0)),read.get(1), read.get(2), read.get(3), read.get(4), read.get(5), read.get(6), read.get(7), read.get(8), read.get(9), read.get(10),read.get(11),read.get(12)));
                     read.clear();
                 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.staf.BrokerTable">
+   <children>
+      <ScrollPane layoutX="25.0" layoutY="25.0" prefHeight="430.0" prefWidth="620.0">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TableView fx:id="brokertable" prefHeight="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="blockNumber" maxWidth="100.0" prefWidth="90.0" text="Block Number" />
+                        <TableColumn fx:id="phoneNumber" maxWidth="200.0" prefWidth="90.0" text="Phone Number" />
+                        <TableColumn fx:id="houseNumber" maxWidth="200.0" prefWidth="90.0" text="House Number" />
+                        <TableColumn fx:id="money" maxWidth="200.0" prefWidth="90.0" text="Money" />
+                        <TableColumn fx:id="senario" maxWidth="200.0" prefWidth="90.0" text="Senario" />
+                        <TableColumn fx:id="area" maxWidth="200.0" prefWidth="90.0" text="Area" />
+                        <TableColumn fx:id="floor" maxWidth="200.0" prefWidth="90.0" text="Floor" />
+                        <TableColumn fx:id="part" maxWidth="200.0" prefWidth="90.0" text="Part" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <JFXButton layoutX="217.0" layoutY="455.0" onAction="#refreshPressed" prefHeight="40.0" prefWidth="265.0" text="Refresh" />
+   </children>
+</AnchorPane>

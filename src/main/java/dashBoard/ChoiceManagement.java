@@ -15,8 +15,22 @@ public class ChoiceManagement {
         }
         else if (dataMode.rememberMe(trackerName)){
             System.out.println("Remembered");
-            AdminDashBoardLauncher adminDashBoardLauncher = new AdminDashBoardLauncher();
-            adminDashBoardLauncher.dashBoardLauncher();
+            if(dataMode.rememberName().equals("Admin")){
+                AdminDashBoardLauncher adminDashBoardLauncher = new AdminDashBoardLauncher();
+                adminDashBoardLauncher.dashBoardLauncher();
+            }
+            else if (dataMode.rememberName().equals("Staff")){
+                StaffDashBoardLauncher adminDashBoardLauncher = new StaffDashBoardLauncher();
+                adminDashBoardLauncher.dashBoardLauncher();
+            }
+            else if (dataMode.rememberName().equals("Broker")){
+                BrokerDashBoardLauncher dashBoardLauncher = new BrokerDashBoardLauncher();
+                dashBoardLauncher.dashBoardLauncher();
+            }
+            else {
+                SecurityDashBoardLauncher dashBoardLauncher = new SecurityDashBoardLauncher();
+                dashBoardLauncher.dashBoardLauncher();
+            }
         }
         else {
             System.out.println("Skipped");

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.staf.ShiftMaker">
+   <children>
+      <Pane layoutX="20.0" layoutY="20.0" prefHeight="640.0" prefWidth="300.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="520.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <VBox prefHeight="640.0" prefWidth="300.0">
+               <children>
+                  <HBox prefHeight="40.0" prefWidth="300.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="120.0" text="Name" />
+                        <TextField fx:id="name" prefHeight="40.0" prefWidth="190.0" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="300.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="120.0" text="Responsiblity" />
+                        <TextField fx:id="responsiblity" prefHeight="40.0" prefWidth="190.0" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="300.0" text="Monday" />
+                  <HBox prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="30.0" text="From" />
+                        <Spinner fx:id="fromMon" prefHeight="40.0" prefWidth="120.0" />
+                        <Label prefHeight="40.0" prefWidth="30.0" text="To" />
+                        <Spinner fx:id="toMon" prefHeight="40.0" prefWidth="120.0" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="35.0" prefWidth="300.0" text="Tuesday" />
+                  <HBox layoutX="10.0" layoutY="80.0" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="30.0" text="From" />
+                        <Spinner fx:id="fromTus" prefHeight="40.0" prefWidth="120.0" />
+                        <Label prefHeight="40.0" prefWidth="30.0" text="To" />
+                        <Spinner fx:id="toTus" prefHeight="40.0" prefWidth="120.0" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="120.0" prefHeight="35.0" prefWidth="300.0" text="Wednesday" />
+                  <HBox layoutX="10.0" layoutY="155.0" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="30.0" text="From" />
+                        <Spinner fx:id="fromWend" prefHeight="40.0" prefWidth="120.0" />
+                        <Label prefHeight="40.0" prefWidth="30.0" text="To" />
+                        <Spinner fx:id="toWend" prefHeight="40.0" prefWidth="120.0" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="195.0" prefHeight="35.0" prefWidth="300.0" text="Thursday" />
+                  <HBox layoutX="10.0" layoutY="230.0" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="30.0" text="From" />
+                        <Spinner fx:id="fromThur" prefHeight="40.0" prefWidth="120.0" />
+                        <Label prefHeight="40.0" prefWidth="30.0" text="To" />
+                        <Spinner fx:id="toThur" prefHeight="40.0" prefWidth="120.0" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="270.0" prefHeight="35.0" prefWidth="300.0" text="Friday" />
+                  <HBox layoutX="10.0" layoutY="305.0" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="30.0" text="From" />
+                        <Spinner fx:id="fromFri" prefHeight="40.0" prefWidth="120.0" />
+                        <Label prefHeight="40.0" prefWidth="30.0" text="To" />
+                        <Spinner fx:id="toFri" prefHeight="40.0" prefWidth="120.0" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="345.0" prefHeight="35.0" prefWidth="300.0" text="Saturday" />
+                  <HBox layoutX="10.0" layoutY="380.0" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="30.0" text="From" />
+                        <Spinner fx:id="fromSat" prefHeight="40.0" prefWidth="120.0" />
+                        <Label prefHeight="40.0" prefWidth="30.0" text="To" />
+                        <Spinner fx:id="toSat" prefHeight="40.0" prefWidth="120.0" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="420.0" prefHeight="35.0" prefWidth="300.0" text="Sunday" />
+                  <HBox layoutX="10.0" layoutY="455.0" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="30.0" text="From" />
+                        <Spinner fx:id="fromSun" prefHeight="40.0" prefWidth="120.0" />
+                        <Label prefHeight="40.0" prefWidth="30.0" text="To" />
+                        <Spinner fx:id="toSun" prefHeight="40.0" prefWidth="120.0" />
+                     </children>
+                  </HBox>
+                  <JFXButton onAction="#rigisterPressed" prefHeight="40.0" prefWidth="300.0" text="Rigister">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="340.0" layoutY="150.0" prefHeight="510.0" prefWidth="480.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="150.0">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TableView fx:id="shiftTable" prefHeight="510.0" prefWidth="480.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="nameTab" maxWidth="200.0" prefWidth="100.0" text="Name" />
+                        <TableColumn fx:id="responsiblityTab" maxWidth="200.0" prefWidth="100.0" text="Responsiblity" />
+                        <TableColumn fx:id="mondayTab" maxWidth="200.0" prefWidth="100.0" text="Monday" />
+                        <TableColumn fx:id="tusedayTab" maxWidth="200.0" prefWidth="100.0" text="Tuesday" />
+                        <TableColumn fx:id="wednesdayTab" maxWidth="200.0" prefWidth="100.0" text="Wednesday" />
+                        <TableColumn fx:id="thursdayTab" maxWidth="200.0" prefWidth="100.0" text="Thursday" />
+                        <TableColumn fx:id="fridayTab" maxWidth="200.0" prefWidth="100.0" text="Friday" />
+                        <TableColumn fx:id="saturdayTab" maxWidth="200.0" prefWidth="100.0" text="Saturday" />
+                        <TableColumn fx:id="sundayTab" maxWidth="200.0" prefWidth="100.0" text="Sunday" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <JFXButton layoutX="669.0" layoutY="29.0" onAction="#refreshPressed" prefHeight="34.0" prefWidth="115.0" text="Refrsh Table" />
+   </children>
+</AnchorPane>

@@ -26,7 +26,7 @@ This project is a java application that used for Condominiums Mangment System
 2. run the following command
 * for windows
 ```
-gradlew run
+.\gradlew.bat run
 ```
 * for ubuntu
 ```

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.staf.LoginTableController">
+   <children>
+      <ScrollPane layoutX="20.0" layoutY="20.0" prefHeight="400.0" prefWidth="560.0">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TableView fx:id="credentialTable" prefHeight="400.0" prefWidth="560.0">
+                    <columns>
+                      <TableColumn fx:id="userName" maxWidth="200.0" prefWidth="140.0" text="UserName" />
+                      <TableColumn fx:id="password" maxWidth="130.0" prefWidth="120.0" text="Password" />
+                        <TableColumn fx:id="accessLevel" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Access Level" />
+                        <TableColumn fx:id="hint" maxWidth="150.0" minWidth="130.0" prefWidth="135.0" text="Hint" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <JFXButton layoutX="140.0" layoutY="450.0" onAction="#infoPressed" prefHeight="32.0" prefWidth="300.0" text="Info" />
+   </children>
+</AnchorPane>

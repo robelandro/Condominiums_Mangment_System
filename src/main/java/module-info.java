@@ -2,7 +2,7 @@ module CMS {
 
     requires javafx.controls;
     requires javafx.fxml;
-    requires transitive javafx.graphics;
+    requires javafx.graphics;
     requires java.sql;
     requires com.jfoenix;
     requires fontawesomefx;
@@ -23,4 +23,5 @@ module CMS {
     opens helper.physical;
     opens dashBoard;
     opens helper.Info;
+    opens helper.staf;
 }

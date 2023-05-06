@@ -3,6 +3,9 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -18,6 +21,21 @@
                             <VBox.margin>
                                 <Insets top="20.0" />
                             </VBox.margin>
+                     <graphic>
+                        <MenuBar prefHeight="45.0" prefWidth="185.0">
+                           <menus>
+                              <Menu mnemonicParsing="false" text="Propertiy Manger">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#carManagementPressed" text="Car Mangement" />
+                                    <MenuItem mnemonicParsing="false" onAction="#householdManagementPressed" text="Household Mangement" />
+                                 </items>
+                              </Menu>
+                           </menus>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </MenuBar>
+                     </graphic>
                         </JFXButton>
                         <JFXButton fx:id="seeShift" layoutX="30.0" layoutY="30.0" onAction="#seeShiftPressed" prefHeight="45.0" prefWidth="185.0" text="See Shift" />
                         <JFXButton fx:id="addReport" layoutX="30.0" layoutY="95.0" onAction="#addReportPressed" prefHeight="45.0" prefWidth="185.0" text="Add Report" />

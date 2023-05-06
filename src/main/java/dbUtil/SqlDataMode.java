@@ -56,7 +56,9 @@ public class SqlDataMode {
     public void programTracker(String tableName){
         String sqlTable = "CREATE TABLE "+tableName+" (numCount INTEGER GENERATED ALWAYS AS IDENTITY,"+
                 "StartUp BOOLEAN," +
-                "RememberMe BOOLEAN)";
+                "RememberMe BOOLEAN," +
+                "RememberName VarChar(30)," +
+                "UserName VarChar(30))";
         String sqlInsert = "INSERT INTO "+tableName+" (StartUp,RememberMe) VALUES (true,false)";
         Connection connection ;
         PreparedStatement statement ;
@@ -410,6 +412,44 @@ public class SqlDataMode {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+    public String rememberName(){
+        String read ="Select RememberName From Program Where NumCount = 1";
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        String answer=null;
+        try {
+            connection = DbConnection.getConnection();
+            preparedStatement = connection.prepareStatement(read,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet = preparedStatement.executeQuery();
+            resultSet.first();
+            answer = resultSet.getString("RememberName");
+            connection.close();
+            return answer;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return answer;
+        }
+    }
+    public String userName(){
+        String sqlRead ="Select UserName From Program Where NumCount = 1";
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        String answer=null;
+        try {
+            connection = DbConnection.getConnection();
+            preparedStatement = connection.prepareStatement(sqlRead,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet = preparedStatement.executeQuery();
+            resultSet.first();
+            answer = resultSet.getString("UserName");
+            connection.close();
+            return answer;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return answer;
         }
     }
 

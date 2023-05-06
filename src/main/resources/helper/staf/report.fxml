@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.staf.Report">
+   <children>
+      <TextArea fx:id="report" layoutX="140.0" layoutY="75.0" prefHeight="255.0" prefWidth="500.0" />
+      <TextField fx:id="reportSubjectIn" layoutX="140.0" layoutY="25.0" prefHeight="40.0" prefWidth="200.0" />
+      <Label layoutX="20.0" layoutY="25.0" prefHeight="40.0" prefWidth="100.0" text="Report Subject" />
+      <Label layoutX="20.0" layoutY="177.0" prefHeight="40.0" prefWidth="100.0" text="Report" />
+      <JFXButton layoutX="140.0" layoutY="351.0" onAction="#addReport" prefHeight="40.0" prefWidth="500.0" text="Add Report" />
+      <JFXButton layoutX="20.0" layoutY="420.0" prefHeight="40.0" prefWidth="200.0" text="Get Report" />
+      <TextField fx:id="reportSubjectOut" layoutX="260.0" layoutY="420.0" prefHeight="40.0" prefWidth="200.0" promptText="Please Enter Report Subject" />
+   </children>
+</AnchorPane>

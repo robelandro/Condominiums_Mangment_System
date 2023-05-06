@@ -1,13 +1,18 @@
 package dashBoard;
 
 import com.jfoenix.controls.JFXButton;
+import dbUtil.SqlDataMode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class BrokerDashBoard {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class BrokerDashBoard implements Initializable {
 
     @FXML
     private Pane addToPane;
@@ -50,4 +55,9 @@ public class BrokerDashBoard {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        SqlDataMode dataMode = new SqlDataMode();
+        profileName.setText(dataMode.userName());
+    }
 }

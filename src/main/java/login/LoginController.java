@@ -1,6 +1,7 @@
 package login;
 
 import com.jfoenix.controls.JFXCheckBox;
+import dashBoard.AdminDashBoard;
 import dbUtil.SqlDataMode;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -98,12 +99,14 @@ public class LoginController extends Thread implements Initializable {
 
 
         if (!(comboBox == null)){
-            boolean checked = loginMode.isCorrect(tableName, getUserName().getText(), getPassword().getText(),comboBox);
+            boolean checked = loginMode.isCorrect(tableName, getUserName().getText().trim(), getPassword().getText().trim(),comboBox);
             if (checked){
                 if (rememberMe.isSelected()){
                     String trackerName ="Program";
                     SqlDataMode sqlDataMode = new SqlDataMode();
                     sqlDataMode.rememberMeUpdate(trackerName,true);
+                    String rememberMeUpdate = "Update Program Set RememberName ='"+comboBox+"' Where NumCount = 1";
+                    sqlDataMode.sqlExecute(rememberMeUpdate);
                 }
                 else {
                     String trackerName ="Program";
@@ -122,8 +125,8 @@ public class LoginController extends Thread implements Initializable {
                       break;
                     default:
                       getErrorPrint().setText("Something is going to wrong");
-                  }
-            }
+                      }
+                }
             else {
                 getErrorPrint().setText("Wrong Credential");
             }
@@ -162,12 +165,46 @@ public class LoginController extends Thread implements Initializable {
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             stage.setTitle("Login Page");
+            updateValues(getUserName().getText().trim());
             stage.setResizable(false);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    public void securityDashBord(){
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane pane;
+            pane = (Pane) loader.load(getClass().getResource("/dashBoard/SecurityDashBoard.fxml").openStream());
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+            stage.setTitle("Login Page");
+            updateValues(getUserName().getText().trim());
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void brokerDashBord(){
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane pane;
+            pane = (Pane) loader.load(getClass().getResource("/dashBoard/BrokerDashBoard.fxml").openStream());
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+            stage.setTitle("Login Page");
+            updateValues(getUserName().getText().trim());
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void staffDashBord(){
         try {
             Stage stage = new Stage();
@@ -178,10 +215,16 @@ public class LoginController extends Thread implements Initializable {
             stage.setScene(scene);
             stage.setTitle("Login Page");
             stage.setResizable(false);
+            updateValues(getUserName().getText().trim());
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void updateValues(String usernameP){
+        String rememberMeUpdate = "Update Program Set UserName ='"+usernameP+"' Where NumCount = 1";
+        SqlDataMode sqlDataMode = new SqlDataMode();
+        sqlDataMode.sqlExecute(rememberMeUpdate);
     }
 
     public Label getDbStatues() {

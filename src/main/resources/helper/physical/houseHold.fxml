@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="680.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helper.physical.HouseHoldeControler">
+   <children>
+      <ScrollPane layoutX="22.0" layoutY="18.0" prefHeight="640.0" prefWidth="495.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="20.0">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TableView fx:id="houseHoldTAb" prefHeight="640.0" prefWidth="495.0">
+                    <columns>
+                      <TableColumn fx:id="nameTA" maxWidth="200.0" prefWidth="100.0" text="Name" />
+                      <TableColumn fx:id="residentIdTAb" prefWidth="109.0" text="Resident Id" />
+                        <TableColumn fx:id="nameOfObjectTa" prefWidth="135.0" text="Name Of Object" />
+                        <TableColumn fx:id="riskyTab" prefWidth="131.0" text="Risky" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <VBox layoutX="537.0" layoutY="20.0" prefHeight="640.0" prefWidth="280.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="540.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="271.0" text="Frist Name" />
+            <TextField fx:id="fristName" prefHeight="40.0" prefWidth="280.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="271.0" text="Resident ID" />
+            <TextField fx:id="residentID" layoutX="10.0" layoutY="210.0" prefHeight="40.0" prefWidth="280.0" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="61.0" prefHeight="50.0" prefWidth="271.0" text="Name of Object" />
+            <TextField fx:id="nameOfObject" layoutX="10.0" layoutY="290.0" prefHeight="40.0" prefWidth="280.0" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="190.0" prefHeight="50.0" prefWidth="271.0" text="Payment Purpouse To Check" />
+            <Spinner fx:id="paymentPurpose" layoutX="10.0" layoutY="364.0" prefHeight="40.0" prefWidth="280.0" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="112.0" prefHeight="50.0" prefWidth="271.0" text="Risky" />
+            <Spinner fx:id="riskySpinnner" prefHeight="40.0" prefWidth="280.0" />
+            <JFXButton fx:id="rigester" onAction="#rigesterPressed" prefHeight="43.0" prefWidth="280.0" text="Register">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="370.0" onAction="#removePressed" prefHeight="43.0" prefWidth="280.0" text="Remove">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="checkPressed" layoutX="10.0" layoutY="453.0" prefHeight="43.0" prefWidth="280.0" text="Check">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="280.0" text="Info">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
