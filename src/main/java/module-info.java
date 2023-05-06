@@ -9,9 +9,7 @@ module CMS {
     requires org.apache.derby.tools;
     requires org.apache.derby.client;
     requires org.apache.derby.engine;
-    requires org.apache.derby.runner;
     requires org.apache.derby.server;
-    requires org.apache.derby.optionaltools;
     requires org.apache.derby.commons;
 
 

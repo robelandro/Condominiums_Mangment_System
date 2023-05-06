@@ -17,6 +17,22 @@ repositories {
 dependencies {
     // other dependencies
     implementation fileTree(dir: 'lib', include: '*.jar')
+    // https://mvnrepository.com/artifact/com.jfoenix/jfoenix
+    implementation group: 'com.jfoenix', name: 'jfoenix', version: '9.0.1'
+    // https://mvnrepository.com/artifact/de.jensd/fontawesomefx
+    implementation group: 'de.jensd', name: 'fontawesomefx', version: '8.1'
+    // https://mvnrepository.com/artifact/org.apache.derby/derby
+    testImplementation group: 'org.apache.derby', name: 'derby', version: '10.15.2.0'
+    // https://mvnrepository.com/artifact/org.apache.derby/derbyclient
+    implementation group: 'org.apache.derby', name: 'derbyclient', version: '10.15.2.0'
+    // https://mvnrepository.com/artifact/org.apache.derby/derbytools
+    implementation group: 'org.apache.derby', name: 'derbytools', version: '10.15.2.0'
+    // https://mvnrepository.com/artifact/org.apache.derby/derbynet
+    implementation group: 'org.apache.derby', name: 'derbynet', version: '10.15.2.0'
+    // https://mvnrepository.com/artifact/org.apache.derby/derbyshared
+    implementation group: 'org.apache.derby', name: 'derbyshared', version: '10.15.2.0'
+    // https://mvnrepository.com/artifact/org.apache.derby/derbyoptionaltools
+    testImplementation group: 'org.apache.derby', name: 'derbyoptionaltools', version: '10.15.2.0'
 }
 
 javafx {
